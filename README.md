@@ -14,10 +14,26 @@ Data visualizations are generated with [D3.js](https://d3js.org).
 
 ## Getting Started
 
+Clone repository and install dependencies:
 ```
 git clone https://github.com/loljoho/gpquery.git
 cd gpquery/
 npm install
+```
+
+Run dev server at [http://localhost:3000](http://localhost:3000):
+```
+npm start
+```
+
+Launch test runner in interactive watch mode:
+```
+npm test
+```
+
+Build app for production in `build/`:
+```
+npm run build
 ```
 
 ## Contributing
