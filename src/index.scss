@@ -1,5 +1,19 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+@charset 'UTF-8';
+
+// 1. Abstract
+@import 'styles/variables';
+@import 'styles/utilities';
+
+// 2. Vendors
+//@import 'styles/normalize';
+
+// 3. Base
+@import 'styles/base';
+
+// 4. Layout
+
+// 5. Components
+
+// 6. Page-Specific
+
+// 7. Themes

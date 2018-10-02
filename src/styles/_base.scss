@@ -1,0 +1,13 @@
+////
+/// Base Partial
+/// Contains styles for common HTML elements, as well as resets and typography
+/// @group Base
+/// @author Jonathan Ho
+////
+
+body {
+  margin: $body-margin;
+  padding: $body-padding;
+  font-family: $font-family-base;
+  background-color: $bg-color-base;
+}
