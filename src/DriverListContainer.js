@@ -28,7 +28,7 @@ class DriverListContainer extends Component {
       }).catch((err) => {
         console.log('Error: ' + err);
       });
-    //this.setState({drivers: [2, 4, 6, 8, 1, 3, 5, 7, 9]})
+    this.setState({drivers: [2, 4, 6, 8, 1, 3, 5, 7, 9]})
   }
   render() {
     return <DriverList
