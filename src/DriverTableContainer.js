@@ -23,9 +23,6 @@ class DriverTableContainer extends Component {
           return response.MRData;
         })
         .then((data) => {
-          const drivers = data.DriverTable.Drivers.map((driver) => {
-            return driver.driverId;
-          });
           const driverList = data.DriverTable.Drivers.map((driver) => {
             return {
               driverId: driver.driverId,
@@ -39,9 +36,7 @@ class DriverTableContainer extends Component {
             };
           })
           this.setState({
-            driverList: driverList,
-            drivers: drivers,
-            data: data
+            driverList: driverList
           });
         });
       }).catch((err) => {
@@ -51,8 +46,6 @@ class DriverTableContainer extends Component {
   render() {
     return <DriverTable
               driverList={this.state.driverList}
-              drivers={this.state.drivers}
-              data={this.state.data}
             />
   }
 }
