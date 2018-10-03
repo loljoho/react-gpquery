@@ -30,9 +30,10 @@ class RaceTableContainer extends Component {
               city: race.Circuit.Location.locality,
               country: race.Circuit.Location.country,
               date: race.date,
-              time: race.time
+              time: race.time,
+              results: race.Results
             };
-          })
+          });
           this.setState({races: races});
         });
       }).catch((err) => {
