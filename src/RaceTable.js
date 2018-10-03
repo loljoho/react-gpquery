@@ -21,7 +21,7 @@ class RaceTable extends Component {
     });
     return (
       <div className="table-responsive-md">
-        <table className="RaceTable table table-striped table-hover">
+        <table className="RaceTable table table-striped table-hover table-sm">
           <thead>
             <tr>
               <th>Year</th>
