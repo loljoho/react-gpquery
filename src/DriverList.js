@@ -5,10 +5,17 @@ import './DriverList.css';
 class DriverList extends Component {
   render() {
     const rows = [];
-    this.props.drivers.forEach((driver) => {
+    this.props.driverList.forEach((driver) => {
       rows.push(<Driver
-                  driverId={driver}
-                  key={driver}
+                  key={driver.driverId}
+                  driverId={driver.driverId}
+                  firstName={driver.firstName}
+                  lastName={driver.lastName}
+                  driverCode={driver.code}
+                  driverNumber={driver.driverNumber}
+                  dob={driver.dob}
+                  nationality={driver.nationality}
+                  driverWiki={driver.url}
                 />
       );
     });

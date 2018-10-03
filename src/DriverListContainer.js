@@ -6,8 +6,8 @@ class DriverListContainer extends Component {
     super()
     this.state = {
       drivers: [],
-      data: [],
-      driverTable: []
+      driverList: [],
+      data: []
     }
   }
   componentDidMount() {
@@ -19,19 +19,38 @@ class DriverListContainer extends Component {
           return;
         }
         response.json().then((response) => {
-          this.setState({
-            data: response.MRData,
-            driverTable: response.MRData.DriverTable
-          });
+          console.log('Success!', response);
           return response.MRData;
+        })
+        .then((data) => {
+          const drivers = data.DriverTable.Drivers.map((driver) => {
+            return driver.driverId;
+          });
+          const driverList = data.DriverTable.Drivers.map((driver) => {
+            return {
+              driverId: driver.driverId,
+              driverNumber: driver.permanentNumber,
+              firstName: driver.givenName,
+              lastName: driver.familyName,
+              code: driver.code,
+              dob: driver.dateOfBirth,
+              nationality: driver.nationality,
+              url: driver.url
+            };
+          })
+          this.setState({
+            driverList: driverList,
+            drivers: drivers,
+            data: data
+          });
         });
       }).catch((err) => {
         console.log('Error: ' + err);
       });
-    this.setState({drivers: [2, 4, 6, 8, 1, 3, 5, 7, 9]})
   }
   render() {
     return <DriverList
+              driverList={this.state.driverList}
               drivers={this.state.drivers}
               data={this.state.data}
             />

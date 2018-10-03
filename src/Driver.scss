@@ -1,0 +1,87 @@
+$block-width-base:      24px;
+$block:                 $block-width-base;
+
+$block-spacing-xs:      $block / 12;  // 2px
+$block-spacing-sm:      $block / 8;   // 3px
+$block-spacing-md:      $block / 6;   // 4px
+$block-spacing-lg:      $block / 4;   // 6px
+$block-spacing-xl:      $block / 3;   // 8px
+
+$block-width-xs:        2 * $block;   // 48px
+$block-width-sm:        3 * $block;   // 72px
+$block-width-md:        4 * $block;   // 96px
+$block-width-lg:        5 * $block;   // 120px
+$block-width-xl:        8 * $block;   // 192px
+
+.Driver {
+  > * {
+    display: inline-block;
+    color: #222;
+  }
+  a {
+    color: #333399;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:visited {
+      color: #333399;
+      text-decoration: none;
+    }
+  }
+  &__name {
+    display: inline-block;
+    width: $block-width-xl;
+    .name {
+      display: inline-block;
+      &:first-child {
+        margin-right: $block-spacing-sm;
+      }
+      &.first {
+        color: #666666;
+      }
+      &.last {
+        color: #993333;
+        font-weight: bold;
+      }
+    }
+  }
+  &__code {
+    text-align: center;
+    width: $block-width-sm;
+  }
+  &__num {
+    font-weight: bold;
+    text-align: center;
+    width: $block-width-sm;
+  }
+  &__dob {
+    text-align: right;
+    width: $block-width-lg;
+  }
+  &__flag {
+    border: 0.5px solid #222;
+    position: relative;
+    margin-right: $block-spacing-sm;
+    min-height: 16px;
+    vertical-align: middle;
+    height: 100%;
+    width: $block-width-base;
+    .nationality {
+      display: none;
+      font-size: 12px;
+      text-align: left;
+      position: absolute;
+      top: 0;
+      left: $block-spacing-xs;
+    }
+    &:hover {
+      border: 0.5px dashed #ccc;
+      .nationality {
+        display: block;
+        min-width: $block-width-lg;
+        max-width: $block-width-xl;
+        cursor: pointer;
+      }
+    }
+  }
+}
