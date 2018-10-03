@@ -20,7 +20,7 @@ class RaceTable extends Component {
       );
     });
     return (
-      <table className="RaceTable">
+      <table className="RaceTable table table-striped table-hover">
         <thead>
           <tr>
             <th>Year</th>
