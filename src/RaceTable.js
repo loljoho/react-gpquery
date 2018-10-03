@@ -20,20 +20,23 @@ class RaceTable extends Component {
       );
     });
     return (
-      <table className="RaceTable table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Rnd</th>
-            <th>Race</th>
-            <th>Circuit</th>
-            <th colSpan="2">Location</th>
-            <th>Date</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>
+      <div className="table-responsive-md">
+        <table className="RaceTable table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Rnd</th>
+              <th>Race</th>
+              <th>Circuit</th>
+              <th>Locality</th>
+              <th>Country</th>
+              <th>Date</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
     );
   }
 }
