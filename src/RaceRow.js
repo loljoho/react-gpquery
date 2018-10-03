@@ -12,7 +12,6 @@ class RaceRow extends Component {
         <td className="RaceRow__city">{this.props.city}</td>
         <td className="RaceRow__country">{this.props.country}</td>
         <td className="RaceRow__date">{this.props.date}</td>
-        <td className="RaceRow__time">{this.props.time}</td>
       </tr>
     );
   }

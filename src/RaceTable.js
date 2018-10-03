@@ -31,7 +31,6 @@ class RaceTable extends Component {
               <th>Locality</th>
               <th>Country</th>
               <th>Date</th>
-              <th>Time</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>
