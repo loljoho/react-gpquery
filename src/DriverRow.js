@@ -4,18 +4,16 @@ import './DriverRow.css';
 class DriverRow extends Component {
   render() {
     return (
-      <div className="DriverRow">
-        <div className="DriverRow__name">
-          <span className="name last">{this.props.lastName}</span>
+      <tr className="DriverRow">
+        <td className="DriverRow__name">
+          <span className="name last">{this.props.lastName}, </span>
           <span className="name first">{this.props.firstName}</span>
-        </div>
-        <div className="DriverRow__code">{this.props.driverCode}</div>
-        <div className="DriverRow__num">{this.props.driverNumber}</div>
-        <div className="DriverRow__flag">
-          <span className="nationality">{this.props.nationality}</span>
-        </div>
-        <div className="DriverRow__dob">{this.props.dob}</div>
-      </div>
+        </td>
+        <td className="DriverRow__code">{this.props.driverCode}</td>
+        <td className="DriverRow__num">{this.props.driverNumber}</td>
+        <td className="DriverRow__flag" alt="{this.props.nationality}"></td>
+        <td className="DriverRow__dob">{this.props.dob}</td>
+      </tr>
     );
   }
 }

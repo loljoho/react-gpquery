@@ -20,8 +20,16 @@ class DriverTable extends Component {
       );
     });
     return (
-      <div className="DriverTable">
-        {rows}
+      <div className="table-responsive-md">
+        <table className="RaceTable table table-striped table-hover">
+          <thead>
+            <tr>
+              <th colSpan="4">Driver</th>
+              <th>DOB</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
       </div>
     );
   }
