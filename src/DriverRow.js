@@ -7,8 +7,8 @@ class DriverRow extends Component {
       <tr className="DriverRow">
         <td className="Driver__pos">{this.props.positionText}</td>
         <td className="DriverRow__name">
-          {this.props.lastName}
-          <span className="name first" style={{display: 'none'}}>{this.props.firstName} {this.props.driverNumber}</span>
+          {this.props.firstName} {this.props.lastName}
+          <span className="name first" style={{display: 'none'}}> {this.props.driverNumber}</span>
           <span className="DriverRow__dob" style={{display: 'none'}}>{this.props.dob}</span>
           <span className="DriverRow__code" style={{display: 'none'}}>{this.props.driverCode}</span>
           <span className="flag" style={{display: 'none'}}>{this.props.nationality}"></span>

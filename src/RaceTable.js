@@ -24,12 +24,10 @@ class RaceTable extends Component {
         <table className="RaceTable table table-striped table-hover table-sm">
           <thead>
             <tr>
-              <th>Year</th>
               <th>Rnd</th>
               <th>Race</th>
               <th>Circuit</th>
-              <th>Locality</th>
-              <th>Country</th>
+              <th>Location</th>
               <th>Date</th>
             </tr>
           </thead>
