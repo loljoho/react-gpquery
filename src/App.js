@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DriverListContainer from './DriverListContainer';
+import DriverTableContainer from './DriverTableContainer';
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,7 +11,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">GPQuery</h1>
         </header>
-        <DriverListContainer />
+        <DriverTableContainer />
       </div>
     );
   }

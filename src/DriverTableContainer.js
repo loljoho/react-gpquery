@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import DriverList from './DriverList';
+import DriverTable from './DriverTable';
 
-class DriverListContainer extends Component {
+class DriverTableContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -49,7 +49,7 @@ class DriverListContainer extends Component {
       });
   }
   render() {
-    return <DriverList
+    return <DriverTable
               driverList={this.state.driverList}
               drivers={this.state.drivers}
               data={this.state.data}
@@ -57,4 +57,4 @@ class DriverListContainer extends Component {
   }
 }
 
-export default DriverListContainer;
+export default DriverTableContainer;

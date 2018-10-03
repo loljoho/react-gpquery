@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Driver from './Driver';
-import './DriverList.css';
+import DriverRow from './DriverRow';
+import './DriverTable.css';
 
-class DriverList extends Component {
+class DriverTable extends Component {
   render() {
     const rows = [];
     this.props.driverList.forEach((driver) => {
-      rows.push(<Driver
+      rows.push(<DriverRow
                   key={driver.driverId}
                   driverId={driver.driverId}
                   firstName={driver.firstName}
@@ -20,11 +20,11 @@ class DriverList extends Component {
       );
     });
     return (
-      <div className="DriverList">
+      <div className="DriverTable">
         {rows}
       </div>
     );
   }
 }
 
-export default DriverList;
+export default DriverTable;
