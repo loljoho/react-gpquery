@@ -21,6 +21,17 @@ class RaceTable extends Component {
     });
     return (
       <table className="RaceTable">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Rnd</th>
+            <th>Race</th>
+            <th>Circuit</th>
+            <th colspan="2">Location</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
         <tbody>{rows}</tbody>
       </table>
     );
