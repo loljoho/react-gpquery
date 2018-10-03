@@ -7,6 +7,10 @@ class DriverTable extends Component {
     const rows = [];
     this.props.drivers.forEach((driver) => {
       rows.push(<DriverRow
+                  position={driver.position}
+                  positionText={driver.positionText}
+                  points={driver.points}
+                  wins={driver.wins}
                   key={driver.driverId}
                   driverId={driver.driverId}
                   firstName={driver.firstName}
@@ -16,6 +20,9 @@ class DriverTable extends Component {
                   dob={driver.dob}
                   nationality={driver.nationality}
                   driverWiki={driver.url}
+                  teamId={driver.teamId}
+                  team={driver.team}
+                  teamNationality={driver.teamNationality}
                 />
       );
     });
@@ -24,8 +31,11 @@ class DriverTable extends Component {
         <table className="RaceTable table table-striped table-hover">
           <thead>
             <tr>
-              <th colSpan="4">Driver</th>
-              <th>DOB</th>
+              <th>Pos</th>
+              <th>Driver</th>
+              <th>Constructor</th>
+              <th>Wins</th>
+              <th>Pts</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

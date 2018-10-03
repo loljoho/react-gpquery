@@ -25,6 +25,10 @@ class DriverTableContainer extends Component {
         .then((data) => {
           const drivers = data.StandingsTable.StandingsLists[0].DriverStandings.map((driver) => {
             return {
+              position: driver.position,
+              positionText: driver.positionText,
+              points: driver.points,
+              wins: driver.wins,
               driverId: driver.Driver.driverId,
               driverNumber: driver.Driver.permanentNumber,
               firstName: driver.Driver.givenName,
@@ -32,7 +36,10 @@ class DriverTableContainer extends Component {
               code: driver.Driver.code,
               dob: driver.Driver.dateOfBirth,
               nationality: driver.Driver.nationality,
-              url: driver.Driver.url
+              url: driver.Driver.url,
+              teamId: driver.Constructors[0].constructorId,
+              team: driver.Constructors[0].name,
+              teamNationality: driver.Constructors[0].nationality
             };
           })
           this.setState({drivers: drivers});

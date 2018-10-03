@@ -5,14 +5,20 @@ class DriverRow extends Component {
   render() {
     return (
       <tr className="DriverRow">
+        <td className="Driver__pos">{this.props.positionText}</td>
         <td className="DriverRow__name">
-          <span className="name last">{this.props.lastName}, </span>
-          <span className="name first">{this.props.firstName}</span>
+          {this.props.lastName}
+          <span className="name first" style={{display: 'none'}}>{this.props.firstName} {this.props.driverNumber}</span>
+          <span className="DriverRow__dob" style={{display: 'none'}}>{this.props.dob}</span>
+          <span className="DriverRow__code" style={{display: 'none'}}>{this.props.driverCode}</span>
+          <span className="flag" style={{display: 'none'}}>{this.props.nationality}"></span>
         </td>
-        <td className="DriverRow__code">{this.props.driverCode}</td>
-        <td className="DriverRow__num">{this.props.driverNumber}</td>
-        <td className="DriverRow__flag" alt="{this.props.nationality}"></td>
-        <td className="DriverRow__dob">{this.props.dob}</td>
+        <td className="DriverRow_team">
+          {this.props.team}
+          <span style={{display: 'none'}}>{this.props.teamNationality}</span>
+        </td>
+        <td className="DriverRow__wins">{this.props.wins}</td>
+        <td className="DriverRow__points">{this.props.points}</td>
       </tr>
     );
   }
