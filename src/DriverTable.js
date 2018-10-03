@@ -5,7 +5,7 @@ import './DriverTable.css';
 class DriverTable extends Component {
   render() {
     const rows = [];
-    this.props.driverList.forEach((driver) => {
+    this.props.drivers.forEach((driver) => {
       rows.push(<DriverRow
                   key={driver.driverId}
                   driverId={driver.driverId}

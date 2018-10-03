@@ -12,7 +12,7 @@ class DriverTableContainer extends Component {
   }
   componentDidMount() {
     // https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-    fetch('http://ergast.com/api/f1/current/drivers.json')
+    fetch('http://ergast.com/api/f1/current/driverStandings.json')
       .then((response) => {
         if (response.status !== 200) {
           console.log('Error status code: ' + response.status);
@@ -23,21 +23,19 @@ class DriverTableContainer extends Component {
           return response.MRData;
         })
         .then((data) => {
-          const driverList = data.DriverTable.Drivers.map((driver) => {
+          const drivers = data.StandingsTable.StandingsLists[0].DriverStandings.map((driver) => {
             return {
-              driverId: driver.driverId,
-              driverNumber: driver.permanentNumber,
-              firstName: driver.givenName,
-              lastName: driver.familyName,
-              code: driver.code,
-              dob: driver.dateOfBirth,
-              nationality: driver.nationality,
-              url: driver.url
+              driverId: driver.Driver.driverId,
+              driverNumber: driver.Driver.permanentNumber,
+              firstName: driver.Driver.givenName,
+              lastName: driver.Driver.familyName,
+              code: driver.Driver.code,
+              dob: driver.Driver.dateOfBirth,
+              nationality: driver.Driver.nationality,
+              url: driver.Driver.url
             };
           })
-          this.setState({
-            driverList: driverList
-          });
+          this.setState({drivers: drivers});
         });
       }).catch((err) => {
         console.log('Error: ' + err);
@@ -45,7 +43,7 @@ class DriverTableContainer extends Component {
   }
   render() {
     return <DriverTable
-              driverList={this.state.driverList}
+              drivers={this.state.drivers}
             />
   }
 }
