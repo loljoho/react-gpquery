@@ -27,7 +27,7 @@ class RaceTable extends Component {
             <th>Rnd</th>
             <th>Race</th>
             <th>Circuit</th>
-            <th colspan="2">Location</th>
+            <th colSpan="2">Location</th>
             <th>Date</th>
             <th>Time</th>
           </tr>
