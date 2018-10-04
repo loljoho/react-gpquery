@@ -12,7 +12,7 @@ class DriverTableContainer extends Component {
   }
   componentDidMount() {
     // https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-    fetch('http://ergast.com/api/f1/current/driverStandings.json')
+    fetch('https://ergast.com/api/f1/current/driverStandings.json')
       .then((response) => {
         if (response.status !== 200) {
           console.log('Error status code: ' + response.status);
