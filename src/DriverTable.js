@@ -20,9 +20,9 @@ class DriverTable extends Component {
                   dob={driver.dob}
                   nationality={driver.nationality}
                   driverWiki={driver.url}
-                  teamId={driver.teamId}
-                  team={driver.team}
-                  teamNationality={driver.teamNationality}
+                  constructorId={driver.constructorId}
+                  constructor={driver.constructor}
+                  constructorNationality={driver.constructorNationality}
                 />
       );
     });

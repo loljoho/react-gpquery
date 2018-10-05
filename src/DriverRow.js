@@ -13,9 +13,9 @@ class DriverRow extends Component {
           <span className="DriverRow__code" style={{display: 'none'}}>{this.props.driverCode}</span>
           <span className="flag" style={{display: 'none'}}>{this.props.nationality}"></span>
         </td>
-        <td className="DriverRow_team">
-          {this.props.team}
-          <span style={{display: 'none'}}>{this.props.teamNationality}</span>
+        <td className="DriverRow_constructor">
+          {this.props.constructor}
+          <span style={{display: 'none'}}>{this.props.constructorNationality}</span>
         </td>
         <td className="DriverRow__wins">{this.props.wins}</td>
         <td className="DriverRow__points">{this.props.points}</td>

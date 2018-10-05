@@ -37,9 +37,9 @@ class DriverTableContainer extends Component {
               dob: driver.Driver.dateOfBirth,
               nationality: driver.Driver.nationality,
               url: driver.Driver.url,
-              teamId: driver.Constructors[0].constructorId,
-              team: driver.Constructors[0].name,
-              teamNationality: driver.Constructors[0].nationality
+              constructorId: driver.Constructors[0].constructorId,
+              constructor: driver.Constructors[0].name,
+              constructorNationality: driver.Constructors[0].nationality
             };
           })
           this.setState({drivers: drivers});
