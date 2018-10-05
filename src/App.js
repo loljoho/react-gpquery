@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ConstructorTableContainer from './ConstructorTableContainer';
 import DriverTableContainer from './DriverTableContainer';
 import RaceTableContainer from './RaceTableContainer';
 import logo from './logo.svg';
@@ -15,6 +16,7 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-sm-4">
+              <ConstructorTableContainer />
               <DriverTableContainer />
             </div>
             <div className="col-sm-8">
