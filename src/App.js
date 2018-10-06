@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import ConstructorTableContainer from './ConstructorTableContainer';
-import DriverTableContainer from './DriverTableContainer';
-import RaceTableContainer from './RaceTableContainer';
 import logo from './logo.svg';
 import './App.css';
+
+// Components
+import {
+  ConstructorTableContainer,
+  DriverTableContainer,
+  RaceTableContainer
+} from './components';
 
 class App extends Component {
   render() {
