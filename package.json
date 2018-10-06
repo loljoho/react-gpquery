@@ -23,6 +23,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   }
 }
