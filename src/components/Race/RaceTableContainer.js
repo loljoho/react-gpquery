@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import RaceTable from './RaceTable';
 
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+
 class RaceTableContainer extends Component {
   constructor() {
     super()
@@ -8,7 +11,7 @@ class RaceTableContainer extends Component {
       races: []
     }
   }
-  componentDidMount() {
+  fetchData() {
     // https://developers.google.com/web/updates/2015/03/introduction-to-fetch
     fetch('https://ergast.com/api/f1/current/results.json?limit=500')
       .then((response) => {
@@ -41,7 +44,30 @@ class RaceTableContainer extends Component {
       });
   }
   render() {
-    return <RaceTable races={this.state.races} />
+    //return <RaceTable races={this.state.races} />
+    return (
+      <ReactTable
+        columns={[
+          {
+            Header: 'Rnd'
+          },
+          {
+            Header: 'Race'
+          },
+          {
+            Header: 'Circuit'
+          },
+          {
+            Header: 'Location'
+          },
+          {
+            Header: 'Date'
+          }
+        ]}
+        data={this.races}
+        onFetchData={this.fetchData}
+      />
+    );
   }
 }
 
