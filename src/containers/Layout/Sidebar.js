@@ -14,15 +14,15 @@ class Sidebar extends Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="drivers">
                 <span data-feather="file"></span>
-                Orders
+                Drivers
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
                 <span data-feather="shopping-cart"></span>
-                Products
+                Constructors
               </a>
             </li>
             <li className="nav-item">
