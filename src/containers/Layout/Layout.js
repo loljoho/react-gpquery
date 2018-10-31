@@ -16,6 +16,7 @@ import {
 
 class Layout extends Component {
   render() {
+    // TODO: Refactor route configurations
     return (
       <div className="app">
         <Toolbar />
@@ -25,10 +26,10 @@ class Layout extends Component {
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
               <Container fluid>
                 <Switch>
-                  <Route exact path="/" component={RaceTableContainer} />
                   <Route path="/races" component={RaceTableContainer} />
                   <Route path="/drivers" component={DriverTableContainer} />
                   <Route path="/constructors" component={ConstructorTableContainer} />
+                  <Redirect from="/" to="/races" />
                 </Switch>
               </Container>
             </main>
