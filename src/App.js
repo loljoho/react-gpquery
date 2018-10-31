@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { HashRouter, Route, Switch } from "react-router-dom";
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,6 +13,17 @@ import {
 
 class App extends Component {
   render() {
+    return (
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={RaceTableContainer} />
+          <Route path="/races" component={RaceTableContainer} />
+          <Route path="/drivers" component={DriverTableContainer} />
+          <Route path="/constructors" component={ConstructorTableContainer} />
+        </Switch>
+      </HashRouter>
+    );
+    /*
     return (
       <div className="App">
         <header className="App-header">
@@ -30,6 +43,7 @@ class App extends Component {
         </div>
       </div>
     );
+    */
   }
 }
 
