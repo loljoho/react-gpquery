@@ -4,11 +4,10 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
-// Layout Components
+// Layout
 import {
-  Navbar,
-  Sidebar
-} from './components';
+  Layout
+} from './containers';
 
 // Components
 import {
@@ -22,9 +21,22 @@ class App extends Component {
     return (
       <HashRouter>
         <div>
-          <Navbar />
+          <Switch>
+            <Route path="/" name="Home" component={Layout} />
+            <Route path="/races" component={RaceTableContainer} />
+            <Route path="/drivers" component={DriverTableContainer} />
+            <Route path="/constructors" component={ConstructorTableContainer} />
+          </Switch>
+        </div>
+      </HashRouter>
+    );
+    /*
+    return (
+      <HashRouter>
+        <div>
+          <Toolbar />
           <div className="container-fluid">
-            <div class="row">
+            <div className="row">
               <Sidebar />
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <Switch>
@@ -39,6 +51,7 @@ class App extends Component {
         </div>
       </HashRouter>
     );
+    */
   }
 }
 

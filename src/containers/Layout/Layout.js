@@ -7,7 +7,7 @@ import './Layout.css';
 import Toolbar from './Toolbar';
 import Sidebar from './Sidebar';
 
-// Components
+// TODO: Refactor these Component imports
 import {
   ConstructorTableContainer,
   DriverTableContainer,

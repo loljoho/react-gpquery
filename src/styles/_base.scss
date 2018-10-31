@@ -7,7 +7,7 @@
 
 body {
   margin: $body-margin;
-  padding: 48px $body-padding $body-padding $body-padding;
+  padding: $body-padding;
   font-family: $font-family-base;
   background-color: $bg-color-base;
 }
