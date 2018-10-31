@@ -4,6 +4,11 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
+// Layout Components
+import {
+  Navbar
+} from './components';
+
 // Components
 import {
   ConstructorTableContainer,
@@ -16,10 +21,7 @@ class App extends Component {
     return (
       <HashRouter>
         <div>
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">GPQuery</h1>
-          </header>
+          <Navbar />
           <div className="container-fluid">
             <Switch>
               <Route exact path="/" component={RaceTableContainer} />
