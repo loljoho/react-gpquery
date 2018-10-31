@@ -1,4 +1,4 @@
-.sidebar {
+.Sidebar {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -24,22 +24,22 @@
   }
 }
 
-.sidebar .nav-link {
+.Sidebar .nav-link {
   font-weight: 500;
   color: #333;
 }
 
-.sidebar .nav-link .feather {
+.Sidebar .nav-link .feather {
   margin-right: 4px;
   color: #999;
 }
 
-.sidebar .nav-link.active {
+.Sidebar .nav-link.active {
   color: #007bff;
 }
 
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
+.Sidebar .nav-link:hover .feather,
+.Sidebar .nav-link.active .feather {
   color: inherit;
 }
 
