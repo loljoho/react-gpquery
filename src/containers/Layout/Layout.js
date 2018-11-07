@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 import './Layout.css';
 
@@ -20,8 +20,8 @@ class Layout extends Component {
     return (
       <div className="app">
         <Toolbar />
-        <div className="container-fluid">
-          <div className="row">
+        <Container fluid>
+          <Row>
             <Sidebar />
             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
               <Container fluid>
@@ -33,8 +33,8 @@ class Layout extends Component {
                 </Switch>
               </Container>
             </main>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
     );
   }

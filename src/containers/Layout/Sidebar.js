@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
 
+// https://reactstrap.github.io/components/layout/
 class Sidebar extends Component {
   render() {
     return (
