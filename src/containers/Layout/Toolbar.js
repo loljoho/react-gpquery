@@ -29,7 +29,7 @@ class Toolbar extends Component {
   }
   render() {
     return (
-      <Navbar className="Toolbar" color="dark" dark expand="md">
+      <Navbar className="Toolbar" color="dark" dark expand="md" fixed="top">
         <NavbarBrand href="/">GPQuery</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
