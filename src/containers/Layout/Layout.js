@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 import './Layout.css';
 
 import Toolbar from './Toolbar';
-import Sidebar from './Sidebar';
+//import Sidebar from './Sidebar';
 
 // TODO: Refactor these Component imports
 import {
