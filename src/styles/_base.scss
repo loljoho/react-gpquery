@@ -10,4 +10,11 @@ body {
   padding: $body-padding;
   font-family: $font-family-base;
   background-color: $bg-color-base;
+  font-size: 0.875em;
+  overflow-y: auto;
+}
+
+.app {
+  margin-top: 100px;
+  height: 100vh;
 }
