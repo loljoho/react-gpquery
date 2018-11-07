@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 
 import './Layout.css';
 
-import Toolbar from './Toolbar';
+import Header from './Header';
 import Footer from './Footer';
 
 // TODO: Refactor these Component imports
@@ -19,17 +19,19 @@ class Layout extends Component {
     // TODO: Refactor route configurations
     return (
       <div className="app">
-        <Toolbar />
-        <main role="main">
-          <Container>
-            <Switch>
-              <Route path="/races" component={RaceTableContainer} />
-              <Route path="/drivers" component={DriverTableContainer} />
-              <Route path="/constructors" component={ConstructorTableContainer} />
-              <Redirect from="/" to="/races" />
-            </Switch>
-          </Container>
-        </main>
+        <Header />
+        <div className="app-body">
+          <main role="main">
+            <Container>
+              <Switch>
+                <Route path="/races" component={RaceTableContainer} />
+                <Route path="/drivers" component={DriverTableContainer} />
+                <Route path="/constructors" component={ConstructorTableContainer} />
+                <Redirect from="/" to="/races" />
+              </Switch>
+            </Container>
+          </main>
+        </div>
         <Footer />
       </div>
     );
