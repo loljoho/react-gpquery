@@ -6,6 +6,7 @@ import './Layout.css';
 
 import Toolbar from './Toolbar';
 //import Sidebar from './Sidebar';
+import Footer from './Footer';
 
 // TODO: Refactor these Component imports
 import {
@@ -30,6 +31,7 @@ class Layout extends Component {
             </Switch>
           </Container>
         </main>
+        <Footer />
       </div>
     );
   }
