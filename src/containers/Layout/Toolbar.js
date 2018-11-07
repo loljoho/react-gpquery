@@ -35,25 +35,37 @@ class Toolbar extends Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="#/races">Races</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="#/drivers">Drivers</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#/constructors">Constructors</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                Season
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Option 1
+                  2018
                 </DropdownItem>
                 <DropdownItem>
-                  Option 2
+                  2017
+                </DropdownItem>
+                <DropdownItem>
+                  2016
+                </DropdownItem>
+                <DropdownItem>
+                  2015
+                </DropdownItem>
+                <DropdownItem>
+                  2014
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  Reset
+                  Older
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
