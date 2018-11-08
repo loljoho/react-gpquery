@@ -16,6 +16,8 @@ class RaceTable extends Component {
                   country={race.country}
                   date={race.date}
                   time={race.time}
+                  winner={race.winner}
+                  fastest={race.fastest}
                 />
       );
     });
@@ -28,7 +30,8 @@ class RaceTable extends Component {
               <th>Race</th>
               <th>Circuit</th>
               <th>Location</th>
-              <th>Date</th>
+              <th>Winner</th>
+              <th>Fastest Lap</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>
