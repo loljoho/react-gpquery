@@ -17,7 +17,7 @@ class RaceTableContainer extends Component {
           return;
         }
         response.json().then((response) => {
-          console.log('Success!', response);
+          //console.log('Success!', response);
           return response.MRData;
         })
         .then((data) => {
@@ -28,7 +28,11 @@ class RaceTableContainer extends Component {
             // TODO: refactor more efficiently
             race.Results.forEach((result) => {
               if (result.position === '1') {
+                console.log(result);
                 response.winner = result;
+              }
+              if (result.grid === '1') {
+                response.pole = result;
               }
               //if (result.position === '2') {
               //  response.second = result.Driver.code;
