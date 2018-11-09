@@ -32,10 +32,9 @@ class RaceTable extends Component {
             <th className="round">Rnd</th>
             <th>Race</th>
             <th>Circuit</th>
-            <th>Pole Position</th>
-            <th colSpan="2">Fastest Lap</th>
-
+            <th colSpan="2">Pole Position</th>
             <th colSpan="2">Winner</th>
+            <th colSpan="3">Fastest Lap</th>
 
           </tr>
         </thead>
