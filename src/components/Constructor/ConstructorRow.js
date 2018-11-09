@@ -5,10 +5,16 @@ class ConstructorRow extends Component {
   render() {
     return (
       <tr className="ConstructorRow">
-        <td className="Constructor__pos">{this.props.positionText}</td>
-        <td className="ConstructorRow__name">{this.props.constructor}</td>
+
+        <th className="Constructor__pos pos" scope="row">{this.props.positionText}</th>
+
+        <td className="ConstructorRow__constructor">{this.props.constructor}</td>
+        <td className="ConstructorRow__constructor--flag">{this.props.constructorNationality}</td>
+
         <td className="ConstructorRow__wins">{this.props.wins}</td>
+
         <td className="ConstructorRow__points">{this.props.points}</td>
+
       </tr>
     );
   }

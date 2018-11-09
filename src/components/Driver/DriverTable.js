@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Table } from 'reactstrap';
+
 import DriverRow from './DriverRow';
+
 import './DriverTable.css';
 
 class DriverTable extends Component {
@@ -27,20 +30,18 @@ class DriverTable extends Component {
       );
     });
     return (
-      <div className="table-responsive-md">
-        <table className="RaceTable table table-striped table-hover table-sm">
-          <thead>
-            <tr>
-              <th>Pos</th>
-              <th>Driver</th>
-              <th>Constructor</th>
-              <th>Wins</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
-      </div>
+      <Table className="DriverTable" hover striped responsive bordered size="sm">
+        <thead>
+          <tr>
+            <th>Pos</th>
+            <th colSpan="2">Driver</th>
+            <th colSpan="2">Constructor</th>
+            <th>Wins</th>
+            <th>Pts</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </Table>
     );
   }
 }

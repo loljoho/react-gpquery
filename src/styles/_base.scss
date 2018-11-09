@@ -21,7 +21,8 @@ body {
   table.table {
     font-size: 0.75em;
     th {
-      &.round {
+      &.round,
+      &.pos {
         text-align: center;
       }
       &[colSpan] {

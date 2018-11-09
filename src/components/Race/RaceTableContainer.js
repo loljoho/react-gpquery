@@ -28,7 +28,6 @@ class RaceTableContainer extends Component {
             // TODO: refactor more efficiently
             race.Results.forEach((result) => {
               if (result.position === '1') {
-                console.log(result);
                 response.winner = result;
               }
               if (result.grid === '1') {
@@ -56,6 +55,8 @@ class RaceTableContainer extends Component {
             response.date     = race.date;
             response.time     = race.time;
             response.results  = race.Results;
+
+            //console.log(JSON.stringify(response, null, '  '));
 
             return response;
           }); // end map
