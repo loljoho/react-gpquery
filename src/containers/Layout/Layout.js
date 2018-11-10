@@ -10,7 +10,8 @@ import Footer from './Footer';
 
 // Pages
 import {
-  OverviewPage
+  OverviewPage,
+  TablePage,
 } from '../../pages';
 
 // TODO: Refactor these Component imports
@@ -30,11 +31,12 @@ class Layout extends Component {
           <main role="main">
             <Container>
               <Switch>
+                <Route path="/table" component={TablePage} />
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/races" component={RaceTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/overview" />
+                <Redirect from="/" to="/table" />
               </Switch>
             </Container>
           </main>
