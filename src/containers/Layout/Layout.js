@@ -4,8 +4,14 @@ import { Container } from 'reactstrap';
 
 import './Layout.css';
 
+// Layout Components
 import Header from './Header';
 import Footer from './Footer';
+
+// Pages
+import {
+  OverviewPage
+} from '../../pages';
 
 // TODO: Refactor these Component imports
 import {
@@ -24,10 +30,11 @@ class Layout extends Component {
           <main role="main">
             <Container>
               <Switch>
+                <Route path="/overview" component={OverviewPage} />
                 <Route path="/races" component={RaceTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/races" />
+                <Redirect from="/" to="/overview" />
               </Switch>
             </Container>
           </main>

@@ -17,4 +17,17 @@ body {
 .app {
   margin-top: 100px;
   height: 100vh;
+
+  table.table {
+    font-size: 0.75em;
+    th {
+      &.round,
+      &.pos {
+        text-align: center;
+      }
+      &[colSpan] {
+        text-align: center;
+      }
+    }
+  }
 }

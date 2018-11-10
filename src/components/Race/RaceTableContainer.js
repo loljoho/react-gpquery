@@ -17,7 +17,7 @@ class RaceTableContainer extends Component {
           return;
         }
         response.json().then((response) => {
-          console.log('Success!', response);
+          //console.log('Success!', response);
           return response.MRData;
         })
         .then((data) => {
@@ -29,6 +29,9 @@ class RaceTableContainer extends Component {
             race.Results.forEach((result) => {
               if (result.position === '1') {
                 response.winner = result;
+              }
+              if (result.grid === '1') {
+                response.pole = result;
               }
               //if (result.position === '2') {
               //  response.second = result.Driver.code;
@@ -52,6 +55,8 @@ class RaceTableContainer extends Component {
             response.date     = race.date;
             response.time     = race.time;
             response.results  = race.Results;
+
+            //console.log(JSON.stringify(response, null, '  '));
 
             return response;
           }); // end map

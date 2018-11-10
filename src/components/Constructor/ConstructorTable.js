@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Table } from 'reactstrap';
+
 import ConstructorRow from './ConstructorRow';
+
 import './ConstructorTable.css';
 
 class ConstructorTable extends Component {
@@ -20,19 +23,17 @@ class ConstructorTable extends Component {
       );
     });
     return (
-      <div className="table-responsive-md">
-        <table className="RaceTable table table-striped table-hover table-sm">
-          <thead>
-            <tr>
-              <th>Pos</th>
-              <th>Constructor</th>
-              <th>Wins</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
-      </div>
+      <Table className="ConstructorTable" hover striped responsive bordered size="sm">
+        <thead>
+          <tr>
+            <th>Pos</th>
+            <th colSpan="2">Constructor</th>
+            <th>Wins</th>
+            <th>Pts</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </Table>
     );
   }
 }
