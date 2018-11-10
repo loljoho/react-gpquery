@@ -20,23 +20,49 @@ class RaceTableContainer extends Component {
           return;
         }
         response.json().then((response) => {
-          console.log('Success!', response);
+          //console.log('Success!', response);
           return response.MRData;
         })
         .then((data) => {
           const races = data.RaceTable.Races.map((race) => {
-            return {
-              season: race.season,
-              round: race.round,
-              race: race.raceName,
-              circuit: race.Circuit.circuitName,
-              city: race.Circuit.Location.locality,
-              country: race.Circuit.Location.country,
-              date: race.date,
-              time: race.time,
-              results: race.Results
-            };
-          });
+
+            let response = {};
+
+            // TODO: refactor more efficiently
+            race.Results.forEach((result) => {
+              if (result.position === '1') {
+                response.winner = result;
+              }
+              if (result.grid === '1') {
+                response.pole = result;
+              }
+              //if (result.position === '2') {
+              //  response.second = result.Driver.code;
+              //}
+              //if (result.position === '3') {
+              //  response.third  = result.Driver.code;
+              //}
+              if (typeof result.FastestLap !== 'undefined') {
+                if (result.FastestLap.rank === '1') {
+                  response.fastest = result;
+                }
+              }
+            }); // end forEach
+
+            response.season   = race.season;
+            response.round    = race.round;
+            response.race     = race.raceName;
+            response.circuit  = race.Circuit.circuitName;
+            response.city     = race.Circuit.Location.locality;
+            response.country  = race.Circuit.Location.country;
+            response.date     = race.date;
+            response.time     = race.time;
+            response.results  = race.Results;
+
+            //console.log(JSON.stringify(response, null, '  '));
+
+            return response;
+          }); // end map
           this.setState({races: races});
         });
       }).catch((err) => {

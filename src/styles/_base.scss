@@ -10,4 +10,24 @@ body {
   padding: $body-padding;
   font-family: $font-family-base;
   background-color: $bg-color-base;
+  font-size: 0.875em;
+  overflow-y: auto;
+}
+
+.app {
+  margin-top: 100px;
+  height: 100vh;
+
+  table.table {
+    font-size: 0.75em;
+    th {
+      &.round,
+      &.pos {
+        text-align: center;
+      }
+      &[colSpan] {
+        text-align: center;
+      }
+    }
+  }
 }
