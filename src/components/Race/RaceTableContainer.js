@@ -150,6 +150,7 @@ class RaceTableContainer extends Component {
       onFetchData={this.fetchData}
       className="-highlight"
       SubComponent={row => {
+        console.log(row);
         return (
           <ReactTable
             data={row.original.children}
@@ -239,7 +240,12 @@ class RaceTableContainer extends Component {
                   {
                     Header    : 'Avg Speed',
                     id        : 'FastestLap.AverageSpeed.speed',
-                    accessor  : d => `${d.FastestLap.AverageSpeed.speed} kph`,
+                    accessor  : d => {
+                      if (typeof d.FastestLap !== 'undefined')
+                        return `${d.FastestLap.AverageSpeed.speed} kph`;
+                      else
+                        return '';
+                    },
                     maxWidth  : 100
                   },
                 ]
