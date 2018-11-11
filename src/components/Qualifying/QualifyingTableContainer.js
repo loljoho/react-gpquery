@@ -106,7 +106,6 @@ class QualifyingTableContainer extends Component {
       className="-highlight"
       SubComponent={row => {
         return (
-          <div>
           <ReactTable
             data={row.original.children}
             columns={[
@@ -161,7 +160,6 @@ class QualifyingTableContainer extends Component {
               }
             ]}
           />
-          </div>
         );
       }}
     />

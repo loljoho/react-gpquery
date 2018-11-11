@@ -51,6 +51,8 @@ const requestData = () => {
         row.lat     = race.Circuit.Location.lat;
         row.long    = race.Circuit.Location.long;
 
+        row.children = race.Results;
+
         return row;
       }); // end map
       const res = {};
@@ -147,6 +149,105 @@ class RaceTableContainer extends Component {
       showPagination={false}
       onFetchData={this.fetchData}
       className="-highlight"
+      SubComponent={row => {
+        return (
+          <ReactTable
+            data={row.original.children}
+            columns={[
+              {
+                Header    : 'Pos',
+                id        : 'position',
+                accessor  : d => d.positionText,
+                maxWidth  : 36,
+              },
+              {
+                Header: 'Driver',
+                columns: [
+                  {
+                    Header    : 'Name',
+                    id        : 'Driver.driverId',
+                    accessor  : d => `${d.Driver.givenName} ${d.Driver.familyName}`
+                  },
+                  {
+                    Header    : 'Num',
+                    accessor  : 'Driver.permanentNumber',
+                    maxWidth  : 50
+                  },
+                  {
+                    Header    : 'Nationality',
+                    accessor  : 'Driver.nationality',
+                  },
+                ]
+              },
+              {
+                Header: 'Constructor',
+                columns: [
+                  {
+                    Header    : 'Name',
+                    id        : 'Constructor.constructorId',
+                    accessor  : d => `${d.Constructor.name}`
+                  },
+                  {
+                    Header    : 'Nationality',
+                    accessor  : 'Constructor.nationality',
+                  }
+                ]
+              },
+              {
+                'Header': 'Results',
+                columns: [
+                  {
+                    Header    : 'Laps',
+                    accessor  : 'laps',
+                    maxWidth  : 50,
+                  },
+                  {
+                    Header    : 'Time/Retired',
+                    accessor  : 'Time.time',
+                    maxWidth  : 120,
+                  },
+                  {
+                    Header    : 'Grid',
+                    accessor  : 'grid',
+                    maxWidth  : 50,
+                  },
+                  {
+                    Header    : 'Points',
+                    accessor  : 'points',
+                    maxWidth  : 50,
+                  },
+                ]
+              },
+              {
+                Header: 'Fastest Lap',
+                columns: [
+                  {
+                    Header    : 'Rank',
+                    accessor  : 'FastestLap.rank',
+                    maxWidth  : 50
+                  },
+                  {
+                    Header    : 'Lap',
+                    accessor  : 'FastestLap.lap',
+                    maxWidth  : 50
+                  },
+                  {
+                    Header    : 'Time',
+                    accessor  : 'FastestLap.Time.time',
+                    maxWidth  : 80
+                  },
+                  {
+                    Header    : 'Avg Speed',
+                    id        : 'FastestLap.AverageSpeed.speed',
+                    accessor  : d => `${d.FastestLap.AverageSpeed.speed} kph`,
+                    maxWidth  : 100
+                  },
+                ]
+              },
+            ]}
+          />
+        );
+      }}
     />
   }
 }

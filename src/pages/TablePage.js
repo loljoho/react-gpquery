@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import QualifyingTableContainer from '../components/Qualifying/QualifyingTableContainer';
+import RaceTableContainer from '../components/Race/RaceTableContainer';
 
 class TablePage extends Component {
   render() {
@@ -9,7 +9,7 @@ class TablePage extends Component {
       <Container fluid>
         <Row>
           <Col>
-            <QualifyingTableContainer />
+            <RaceTableContainer />
           </Col>
         </Row>
       </Container>
