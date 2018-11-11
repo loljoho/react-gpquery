@@ -144,9 +144,8 @@ class RaceTableContainer extends Component {
 
       ]}
       loading={loading}
+      showPagination={false}
       onFetchData={this.fetchData}
-      //filterable
-      defaultPageSize={25}
       className="-highlight"
     />
   }
