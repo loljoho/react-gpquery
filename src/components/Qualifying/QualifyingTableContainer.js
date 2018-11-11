@@ -105,10 +105,6 @@ class QualifyingTableContainer extends Component {
       defaultPageSize={25}
       className="-highlight"
       SubComponent={row => {
-        let text = JSON.stringify(row.row._original.children, null, 2);
-        console.log(text);
-        // Seriously??  ._original??
-        // TODO: figure out how to do this properly
         return (
           <div>
           <ReactTable
