@@ -13,7 +13,7 @@ const requestData = () => {
       return res.json();
     })
     .then(data => {
-      console.log(data);
+      //console.log(data);
       const rows = data.MRData.RaceTable.Races.map(race => {
         let row = {};
 
@@ -29,6 +29,8 @@ const requestData = () => {
         row.country = race.Circuit.Location.country;
         row.lat     = race.Circuit.Location.lat;
         row.long    = race.Circuit.Location.long;
+
+        row.children = race.QualifyingResults;
 
         return row;
       }); // end map
@@ -102,6 +104,70 @@ class QualifyingTableContainer extends Component {
       //filterable
       defaultPageSize={25}
       className="-highlight"
+      SubComponent={row => {
+        let text = JSON.stringify(row.row._original.children, null, 2);
+        console.log(text);
+        // Seriously??  ._original??
+        // TODO: figure out how to do this properly
+        return (
+          <div>
+          <ReactTable
+            data={row.original.children}
+            columns={[
+              {
+                Header    : 'Pos',
+                accessor  : 'position',
+                maxWidth  : 36,
+              },
+              {
+                Header: 'Driver',
+                columns: [
+                  {
+                    Header    : 'Driver',
+                    id        : 'Driver.driverId',
+                    accessor  : d => `${d.Driver.givenName} ${d.Driver.familyName}`
+                  },
+                  {
+                    Header    : 'Nationality',
+                    accessor  : 'Driver.nationality'
+                  },
+                ]
+              },
+              {
+                Header: 'Constructor',
+                columns: [
+                  {
+                    Header    : 'Name',
+                    accessor  : 'Constructor.name'
+                  },
+                  {
+                    Header    : 'Nationality',
+                    accessor  : 'Constructor.nationality'
+                  },
+                ]
+              },
+              {
+                Header: 'Qualifying Times',
+                columns: [
+                  {
+                    Header    : 'Q1',
+                    accessor  : 'Q1'
+                  },
+                  {
+                    Header    : 'Q2',
+                    accessor  : 'Q2'
+                  },
+                  {
+                    Header    : 'Q3',
+                    accessor  : 'Q3'
+                  }
+                ]
+              }
+            ]}
+          />
+          </div>
+        );
+      }}
     />
   }
 }
