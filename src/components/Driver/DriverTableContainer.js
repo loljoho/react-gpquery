@@ -1,57 +1,120 @@
 import React, { Component } from 'react';
-import DriverTable from './DriverTable';
+
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+
+const requestData = () => {
+  return fetch('https://ergast.com/api/f1/current/driverStandings.json')
+    .then(res => {
+      if (res.status !== 200) {
+        console.log('Error status code: ' + res.status);
+        return;
+      }
+      return res.json();
+    })
+    .then(data => {
+      const rows = data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(driver => {
+        let row = {};
+
+        row.position        = driver.position;
+        row.positionText    = driver.positionText;
+        row.points          = driver.points;
+        row.wins            = driver.wins;
+
+        row.driverId        = driver.Driver.driverId;
+        row.driverNumber    = driver.Driver.permanentNumber;
+        row.givenName       = driver.Driver.givenName;
+        row.familyName      = driver.Driver.familyName;
+        row.code            = driver.Driver.code;
+        row.dob             = driver.Driver.dateOfBirth;
+        row.nationality     = driver.Driver.nationality;
+
+        row.teamId          = driver.Constructors[0].constructorId;
+        row.teamName        = driver.Constructors[0].name;
+        row.teamNationality = driver.Constructors[0].nationality;
+
+        return row;
+      }); // end map
+      const res = {};
+      res.rows = rows;
+      return res;
+    }); // end then
+}
 
 class DriverTableContainer extends Component {
   constructor() {
     super()
     this.state = {
-      drivers: [],
-      driverList: [],
-      data: []
+      data: [],
+      pages: null,
+      loading: true
     }
+    this.fetchData = this.fetchData.bind(this);
   }
-  componentDidMount() {
-    // https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-    fetch('https://ergast.com/api/f1/current/driverStandings.json')
-      .then((response) => {
-        if (response.status !== 200) {
-          console.log('Error status code: ' + response.status);
-          return;
-        }
-        response.json().then((response) => {
-          console.log('Success!', response);
-          return response.MRData;
-        })
-        .then((data) => {
-          const drivers = data.StandingsTable.StandingsLists[0].DriverStandings.map((driver) => {
-            return {
-              position: driver.position,
-              positionText: driver.positionText,
-              points: driver.points,
-              wins: driver.wins,
-              driverId: driver.Driver.driverId,
-              driverNumber: driver.Driver.permanentNumber,
-              firstName: driver.Driver.givenName,
-              lastName: driver.Driver.familyName,
-              code: driver.Driver.code,
-              dob: driver.Driver.dateOfBirth,
-              nationality: driver.Driver.nationality,
-              url: driver.Driver.url,
-              constructorId: driver.Constructors[0].constructorId,
-              constructor: driver.Constructors[0].name,
-              constructorNationality: driver.Constructors[0].nationality
-            };
-          })
-          this.setState({drivers: drivers});
-        });
-      }).catch((err) => {
-        console.log('Error: ' + err);
+  fetchData(state, instance) {
+    this.setState({ loading: true });
+    requestData().then(res => {
+      this.setState({
+        data: res.rows,
+        loading: false
       });
+    });
   }
   render() {
-    return <DriverTable
-              drivers={this.state.drivers}
-            />
+    const { data, loading } = this.state;
+    return <ReactTable
+      data={data}
+      columns={[
+        {
+          Header    : 'Pos',
+          id        : 'position',
+          accessor  : 'positionText',
+          maxWidth  : 50,
+        },
+        {
+          Header    : 'Driver',
+          id        : 'driverId',
+          accessor  : d => `${d.givenName} ${d.familyName}`
+        },
+        {
+          Header    : '',
+          accessor  : 'driverNumber',
+          maxWidth  : 50,
+        },
+        {
+          Header    : 'Nationality',
+          accessor  : 'nationality',
+        },
+        {
+          Header    : 'DOB',
+          id        : 'dob',
+          accessor  : d => `${d.dob}`,
+        },
+        {
+          Header    : 'Constructor',
+          id        : 'teamId',
+          accessor  : 'teamName'
+        },
+        {
+          Header    : 'Nationality',
+          accessor  : 'teamNationality',
+        },
+        {
+          Header    : 'Wins',
+          accessor  : 'wins',
+          maxWidth  : 50,
+        },
+        {
+          Header    : 'Pts',
+          accessor  : 'points',
+          maxWidth  : 50,
+        },
+      ]}
+      loading={loading}
+      showPagination={false}
+      onFetchData={this.fetchData}
+      className="-highlight"
+    />
   }
 }
 
