@@ -17,7 +17,9 @@ body {
 .app {
   margin-top: 100px;
   height: 100vh;
-
+  .ReactTable {
+    font-size: 0.875em;
+  }
   table.table {
     font-size: 0.75em;
     th {

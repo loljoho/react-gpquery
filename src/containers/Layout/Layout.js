@@ -10,14 +10,16 @@ import Footer from './Footer';
 
 // Pages
 import {
-  OverviewPage
+  OverviewPage,
+  TablePage,
 } from '../../pages';
 
 // TODO: Refactor these Component imports
 import {
   ConstructorTableContainer,
   DriverTableContainer,
-  RaceTableContainer
+  RaceTableContainer,
+  ResultTableContainer,
 } from '../../components';
 
 class Layout extends Component {
@@ -31,6 +33,8 @@ class Layout extends Component {
             <Container>
               <Switch>
                 <Route path="/overview" component={OverviewPage} />
+                <Route path="/table" component={TablePage} />
+                <Route path="/results" component={ResultTableContainer} />
                 <Route path="/races" component={RaceTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
