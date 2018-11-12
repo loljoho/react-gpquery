@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
+import moment from 'moment';
+
 const requestData = () => {
   return fetch('https://ergast.com/api/f1/current/driverStandings.json')
     .then(res => {
@@ -88,7 +90,7 @@ class DriverTableContainer extends Component {
         {
           Header    : 'DOB',
           id        : 'dob',
-          accessor  : d => `${d.dob}`,
+          accessor  : d => moment(d.dob).format('MMM DD, YYYY')
         },
         {
           Header    : 'Constructor',
