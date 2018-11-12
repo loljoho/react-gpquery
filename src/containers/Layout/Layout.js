@@ -18,7 +18,8 @@ import {
 import {
   ConstructorTableContainer,
   DriverTableContainer,
-  RaceTableContainer
+  RaceTableContainer,
+  ResultTableContainer,
 } from '../../components';
 
 class Layout extends Component {
@@ -31,12 +32,13 @@ class Layout extends Component {
           <main role="main">
             <Container>
               <Switch>
-                <Route path="/table" component={TablePage} />
                 <Route path="/overview" component={OverviewPage} />
+                <Route path="/table" component={TablePage} />
+                <Route path="/results" component={ResultTableContainer} />
                 <Route path="/races" component={RaceTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/table" />
+                <Redirect from="/" to="/overview" />
               </Switch>
             </Container>
           </main>
