@@ -34,6 +34,7 @@ class Layout extends Component {
               <Switch>
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
+                <Route path="/results/:year/:round" component={ResultTableContainer} />
                 <Route path="/results" component={ResultTableContainer} />
                 <Route path="/races/:year" component={RaceTableContainer} />
                 <Route path="/races" component={RaceTableContainer} />

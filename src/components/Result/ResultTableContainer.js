@@ -5,8 +5,8 @@ import 'react-table/react-table.css';
 
 import moment from 'moment';
 
-const requestData = () => {
-  return fetch('https://ergast.com/api/f1/current/last/results.json')
+const requestData = (year, round) => {
+  return fetch('https://ergast.com/api/f1/' + year + '/' + round + '/results.json')
     .then(res => {
       if (res.status !== 200) {
         console.log('Error status code: ' + res.status);
@@ -43,12 +43,12 @@ const requestData = () => {
         } else {
           row.time = result.status;
         }
-
+        /*
         row.fastestLapRank  = result.FastestLap.rank;
         row.fastestLapNum   = result.FastestLap.lap;
         row.fastestLapTime  = result.FastestLap.Time.time;
         row.fastestLapKph   = result.FastestLap.AverageSpeed.speed;
-
+        */
 
         return row;
       }); // end map
@@ -70,7 +70,13 @@ class ResultTableContainer extends Component {
   }
   fetchData(state, instance) {
     this.setState({ loading: true });
-    requestData().then(res => {
+    let year = 'current';
+    let round = 'last';
+    if (this.props.match) {
+      year = this.props.match.params.year || 'current';
+      round = this.props.match.params.round || 'last';
+    }
+    requestData(year, round).then(res => {
       this.setState({
         data: res.rows,
         loading: false
@@ -146,6 +152,7 @@ class ResultTableContainer extends Component {
             },
           ]
         },
+        /*
         {
           Header: 'Fastest Lap',
           columns: [
@@ -172,6 +179,7 @@ class ResultTableContainer extends Component {
             },
           ]
         },
+        */
       ]}
       loading={loading}
       showPagination={false}
