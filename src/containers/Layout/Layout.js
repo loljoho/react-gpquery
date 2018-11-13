@@ -35,6 +35,7 @@ class Layout extends Component {
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
                 <Route path="/results" component={ResultTableContainer} />
+                <Route path="/races/:year" component={RaceTableContainer} />
                 <Route path="/races" component={RaceTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
