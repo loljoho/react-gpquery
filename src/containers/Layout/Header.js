@@ -36,35 +36,35 @@ class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#/races">Races</NavLink>
+                <NavLink href="/races">Races</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#/results">Results</NavLink>
+                <NavLink href="/results">Results</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#/drivers">Drivers</NavLink>
+                <NavLink href="/drivers">Drivers</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#/constructors">Constructors</NavLink>
+                <NavLink href="/constructors">Constructors</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Season
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  <DropdownItem tag="a" href="/races/2018">
                     2018
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem tag="a" href="/races/2017">
                     2017
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem tag="a" href="/races/2016">
                     2016
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem tag="a" href="/races/2015">
                     2015
                   </DropdownItem>
-                  <DropdownItem>
+                  <DropdownItem tag="a" href="/races/2014">
                     2014
                   </DropdownItem>
                   <DropdownItem divider />

@@ -20,6 +20,7 @@ import {
   DriverTableContainer,
   RaceTableContainer,
   ResultTableContainer,
+  QualifyingTableContainer,
 } from '../../components';
 
 class Layout extends Component {
@@ -34,8 +35,9 @@ class Layout extends Component {
               <Switch>
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
-                <Route path="/results" component={ResultTableContainer} />
-                <Route path="/races" component={RaceTableContainer} />
+                <Route path={['/results/:year/:round', '/results']} component={ResultTableContainer} />
+                <Route path={['/races/:year', '/races']} component={RaceTableContainer} />
+                <Route path={['/quals/:year', '/quals']} component={QualifyingTableContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
                 <Redirect from="/" to="/overview" />

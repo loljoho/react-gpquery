@@ -15,10 +15,10 @@ class OverviewPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col sm="12" md="8">
             <DriverTableContainer />
           </Col>
-          <Col>
+          <Col sm="12" md="4">
             <ConstructorTableContainer />
           </Col>
         </Row>
