@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
-const requestData = () => {
-  return fetch('https://ergast.com/api/f1/current/qualifying.json?limit=500')
+const requestData = (year) => {
+  let url = 'https://ergast.com/api/f1/' + year + '/qualifying.json?limit=500';
+  return fetch(url)
     .then(res => {
       if (res.status !== 200) {
         console.log('Error status code: ' + res.status);
@@ -52,7 +53,11 @@ class QualifyingTableContainer extends Component {
   }
   fetchData(state, instance) {
     this.setState({ loading: true });
-    requestData().then(res => {
+    let year = 'current';
+    if (this.props.match) {
+      year = this.props.match.params.year || 'current';
+    }
+    requestData(year).then(res => {
       this.setState({
         data: res.rows,
         loading: false
