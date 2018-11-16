@@ -85,8 +85,9 @@ class DriverTableContainer extends Component {
           maxWidth  : 50,
         },
         {
-          Header    : 'Nationality',
+          Header    : '',
           accessor  : 'driverNationality',
+          maxWidth  : 50,
           Cell: row =>
             <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
         },
@@ -101,8 +102,9 @@ class DriverTableContainer extends Component {
           accessor  : 'teamName'
         },
         {
-          Header    : 'Nationality',
+          Header    : '',
           accessor  : 'teamNationality',
+          maxWidth  : 50,
           Cell: row =>
             <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
         },
