@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -23,13 +24,13 @@ const requestData = () => {
         row.points          = driver.points;
         row.wins            = driver.wins;
 
-        row.driverId        = driver.Driver.driverId;
-        row.driverNumber    = driver.Driver.permanentNumber;
-        row.givenName       = driver.Driver.givenName;
-        row.familyName      = driver.Driver.familyName;
-        row.code            = driver.Driver.code;
-        row.dob             = driver.Driver.dateOfBirth;
-        row.nationality     = driver.Driver.nationality;
+        row.driverId          = driver.Driver.driverId;
+        row.driverNumber      = driver.Driver.permanentNumber;
+        row.givenName         = driver.Driver.givenName;
+        row.familyName        = driver.Driver.familyName;
+        row.code              = driver.Driver.code;
+        row.dob               = driver.Driver.dateOfBirth;
+        row.driverNationality = driver.Driver.nationality;
 
         row.teamId          = driver.Constructors[0].constructorId;
         row.teamName        = driver.Constructors[0].name;
@@ -85,7 +86,9 @@ class DriverTableContainer extends Component {
         },
         {
           Header    : 'Nationality',
-          accessor  : 'nationality',
+          accessor  : 'driverNationality',
+          Cell: row =>
+            <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
         },
         {
           Header    : 'DOB',
@@ -100,6 +103,8 @@ class DriverTableContainer extends Component {
         {
           Header    : 'Nationality',
           accessor  : 'teamNationality',
+          Cell: row =>
+            <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
         },
         {
           Header    : 'Wins',
