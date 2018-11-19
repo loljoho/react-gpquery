@@ -1344,6 +1344,12 @@ const data = [
     "iso3": "tto"
   },
   {
+    "name": "Abu Dhabi",
+    "demonym": "Abu Dhabi",
+    "iso2": "ae",
+    "iso3": "are"
+  },
+  {
     "name": "United Arab Emirates",
     "demonym": "Emirian",
     "iso2": "ae",
