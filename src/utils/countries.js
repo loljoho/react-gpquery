@@ -1416,6 +1416,24 @@ const data = [
     "iso3": "gbr"
   },
   {
+    "name": "UK",
+    "demonym": "British",
+    "iso2": "gb",
+    "iso3": "gbr"
+  },
+  {
+    "name": "United Kingdom",
+    "demonym": "English",
+    "iso2": "gb",
+    "iso3": "gbr"
+  },
+  {
+    "name": "United Kingdom",
+    "demonym": "Scottish",
+    "iso2": "gb",
+    "iso3": "gbr"
+  },
+  {
     "name": "Guernsey",
     "demonym": "of Guernsey",
     "iso2": "gg",
