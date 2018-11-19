@@ -654,6 +654,12 @@ const data = [
     "iso3": "ita"
   },
   {
+    "name": "San Marino",
+    "demonym": "San Marino",
+    "iso2": "it",
+    "iso3": "ita"
+  },
+  {
     "name": "Ivory Coast",
     "demonym": "Ivorian",
     "iso2": "ci",
@@ -668,6 +674,12 @@ const data = [
   {
     "name": "Japan",
     "demonym": "Japanese",
+    "iso2": "jp",
+    "iso3": "jpn"
+  },
+  {
+    "name": "Pacific",
+    "demonym": "Pacific",
     "iso2": "jp",
     "iso3": "jpn"
   },
