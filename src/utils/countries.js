@@ -1504,7 +1504,13 @@ const data = [
     "demonym": "Rhodesian",
     "iso2": "rh",
     "iso3": "rho"
-  }
+  },
+  {
+    "name": "Europe",
+    "demonym": "European",
+    "iso2": "eu",
+    "iso3": "eee"
+  },
 ];
 
 
