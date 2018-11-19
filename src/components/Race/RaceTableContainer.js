@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FlagByCountry } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -106,9 +107,15 @@ class RaceTableContainer extends Component {
         },
         {
           Header    : 'Location',
-          id        : 'country',
-          accessor  : d => `${d.city}, ${d.country}`,
-          maxWidth  : 200,
+          accessor  : 'city'
+        },
+        {
+          Header    : '',
+          accessor  : 'country',
+          maxWidth  : 50,
+          Cell: row =>
+            //row.value
+            <span className={`flag-icon flag-icon-${FlagByCountry(row.value).iso2}`}></span>
         },
         // Latitude, Longitude
         //{
