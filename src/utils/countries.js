@@ -714,6 +714,12 @@ const data = [
     "iso3": "kor"
   },
   {
+    "name": "Korea",
+    "demonym": "Korean",
+    "iso2": "kr",
+    "iso3": "kor"
+  },
+  {
     "name": "Kuwait",
     "demonym": "Kuwaiti",
     "iso2": "kw",
