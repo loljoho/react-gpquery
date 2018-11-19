@@ -1464,6 +1464,54 @@ const data = [
     "iso3": "usa"
   },
   {
+    "name": "United States",
+    "demonym": "United States",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "US",
+    "demonym": "US",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "USA",
+    "demonym": "USA",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "Caesars Palace",
+    "demonym": "Caesars Palace",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "Dallas",
+    "demonym": "Dallas",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "Detroit",
+    "demonym": "Detroit",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "Indianapolis",
+    "demonym": "Indianapolis",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
+    "name": "Indianapolis 500",
+    "demonym": "Indianapolis 500",
+    "iso2": "us",
+    "iso3": "usa"
+  },
+  {
     "name": "Virgin Islands",
     "demonym": "Virgin Islander",
     "iso2": "vi",
