@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FlagByCountry, FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -105,10 +106,16 @@ class RaceTableContainer extends Component {
           accessor  : 'circuit',
         },
         {
+          Header    : '',
+          accessor  : 'country',
+          maxWidth  : 50,
+          Cell: row =>
+            //row.value
+            <span className={`flag-icon flag-icon-${FlagByCountry(row.value).iso2}`}></span>
+        },
+        {
           Header    : 'Location',
-          id        : 'country',
-          accessor  : d => `${d.city}, ${d.country}`,
-          maxWidth  : 200,
+          accessor  : 'city'
         },
         // Latitude, Longitude
         //{
@@ -180,8 +187,11 @@ class RaceTableContainer extends Component {
                     maxWidth  : 50
                   },
                   {
-                    Header    : 'Nationality',
+                    Header    : '',
                     accessor  : 'Driver.nationality',
+                    maxWidth  : 50,
+                    Cell: row =>
+                      <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
                   },
                 ]
               },
@@ -194,8 +204,11 @@ class RaceTableContainer extends Component {
                     accessor  : d => `${d.Constructor.name}`
                   },
                   {
-                    Header    : 'Nationality',
+                    Header    : '',
                     accessor  : 'Constructor.nationality',
+                    maxWidth  : 50,
+                    Cell: row =>
+                      <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
                   }
                 ]
               },

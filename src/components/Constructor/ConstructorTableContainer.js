@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -69,8 +70,11 @@ class ConstructorTableContainer extends Component {
           accessor  : 'teamName'
         },
         {
-          Header    : 'Nationality',
+          Header    : '',
           accessor  : 'teamNationality',
+          maxWidth  : 50,
+          Cell: row =>
+            <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
         },
         {
           Header    : 'Wins',
