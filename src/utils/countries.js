@@ -1611,15 +1611,27 @@ const data = [
 
 
 const FlagByDemonym = (demonym) => {
-  return data.find((o) => {
+  let flag = data.find((o) => {
     return o.demonym.toUpperCase() === demonym.toUpperCase();
   });
+  if (typeof flag !== "undefined") {
+    return flag;
+  } else {
+    console.warn('Failed to find flag for ' + demonym);
+    return 'eu';
+  }
 }
 
 const FlagByCountry = (country) => {
-  return data.find((o) => {
+  let flag = data.find((o) => {
     return o.name.toUpperCase() === country.toUpperCase();
   });
+  if (typeof flag !== "undefined") {
+    return flag;
+  } else {
+    console.warn('Failed to find flag for ' + country);
+    return 'eu';
+  }
 }
 
 export {
