@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FlagByCountry, FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -89,9 +90,16 @@ class QualifyingTableContainer extends Component {
           accessor  : 'circuit'
         },
         {
+          Header    : '',
+          accessor  : 'country',
+          maxWidth  : 50,
+          Cell: row =>
+            //row.value
+            <span className={`flag-icon flag-icon-${FlagByCountry(row.value).iso2}`}></span>
+        },
+        {
           Header    : 'Location',
-          id        : 'country',
-          accessor  : d => `${d.city}, ${d.country}`
+          accessor  : 'city'
         },
         //{
         //  Header    : 'Coordinates',
@@ -128,8 +136,11 @@ class QualifyingTableContainer extends Component {
                     accessor  : d => `${d.Driver.givenName} ${d.Driver.familyName}`
                   },
                   {
-                    Header    : 'Nationality',
-                    accessor  : 'Driver.nationality'
+                    Header    : '',
+                    accessor  : 'Driver.nationality',
+                    maxWidth  : 50,
+                    Cell: row =>
+                      <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
                   },
                 ]
               },
@@ -141,8 +152,11 @@ class QualifyingTableContainer extends Component {
                     accessor  : 'Constructor.name'
                   },
                   {
-                    Header    : 'Nationality',
-                    accessor  : 'Constructor.nationality'
+                    Header    : '',
+                    accessor  : 'Constructor.nationality',
+                    maxWidth  : 50,
+                    Cell: row =>
+                      <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
                   },
                 ]
               },
