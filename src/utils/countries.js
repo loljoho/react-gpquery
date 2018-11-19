@@ -1128,6 +1128,12 @@ const data = [
     "iso3": "rus"
   },
   {
+    "name": "Russia",
+    "demonym": "Russian",
+    "iso2": "ru",
+    "iso3": "rus"
+  },
+  {
     "name": "Rwanda",
     "demonym": "Rwandan",
     "iso2": "rw",
@@ -1374,6 +1380,12 @@ const data = [
     "iso3": "are"
   },
   {
+    "name": "UAE",
+    "demonym": "Emirian",
+    "iso2": "ae",
+    "iso3": "are"
+  },
+  {
     "name": "Tunisia",
     "demonym": "Tunisian",
     "iso2": "tn",
@@ -1435,7 +1447,7 @@ const data = [
   },
   {
     "name": "UK",
-    "demonym": "British",
+    "demonym": "UK",
     "iso2": "gb",
     "iso3": "gbr"
   },
