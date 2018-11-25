@@ -9,6 +9,34 @@ import {
   Layout
 } from './containers';
 
+// FontAwesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCar,
+  faCarSide,
+  faCarCrash,
+  faTrafficLight,
+  faRoad,
+  faStopwatch,
+  faFlag,
+  faFlagCheckered,
+  faTachometerAlt,
+  faTrophy,
+} from '@fortawesome/free-solid-svg-icons'
+
+library.add(
+  faCar,
+  faCarSide,
+  faCarCrash,
+  faTrafficLight,
+  faRoad,
+  faStopwatch,
+  faFlag,
+  faFlagCheckered,
+  faTachometerAlt,
+  faTrophy,)
+
 // TODO: Refactor along with Layout Component
 // Components
 //import {

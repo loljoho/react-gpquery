@@ -173,50 +173,62 @@ class DriverDetailContainer extends Component {
           <DriverStatCard
             value={this.state.driver.races}
             name="Races"
-          />
-          <DriverStatCard
-            value={this.state.driver.dns}
-            name="DNSs"
-          />
-          <DriverStatCard
-            value={this.state.driver.dnf}
-            name="DNFs"
+            icon="tachometer-alt"
           />
           <DriverStatCard
             value={this.state.driver.poles}
-            name="Poles"
+            name="Pole Positions"
+            icon="flag"
           />
           <DriverStatCard
             value={this.state.driver.wins}
             name="Wins"
+            icon="trophy"
+          />
+          <DriverStatCard
+            value={this.state.driver.dnf}
+            name="DNFs"
+            icon="car-crash"
+          />
+          <DriverStatCard
+            value={this.state.driver.dns}
+            name="DNSs"
+            icon="traffic-light"
           />
           <DriverStatCard
             value={this.state.driver.points}
             name="Points"
-          />
-          <DriverStatCard
-            value={this.state.driver.laps}
-            name="Laps"
+            icon="road"
           />
           <DriverStatCard
             value={this.state.driver.podiums}
             name="Podiums"
+            icon="flag-checkered"
+          />
+          <DriverStatCard
+            value={this.state.driver.laps}
+            name="Total Laps"
+            icon="stopwatch"
           />
           <DriverStatCard
             value={this.state.driver.starts}
-            name="Starts"
+            name="Total Starts"
+            icon="car"
           />
           <DriverStatCard
             value={this.state.driver.avgRacePos}
-            name="Avg Pos"
+            name="Avg Pos/Race"
+            icon="flag-checkered"
           />
           <DriverStatCard
             value={this.state.driver.avgRaceGrid}
-            name="Avg Grid"
+            name="Avg Grid/Race"
+            icon="flag"
           />
           <DriverStatCard
             value={this.state.driver.avgRacePoints}
-            name="Avg Points"
+            name="Avg Points/Race"
+            icon="road"
           />
         </Row>
       </div>
