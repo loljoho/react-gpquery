@@ -21,6 +21,7 @@ import {
   RaceTableContainer,
   ResultTableContainer,
   QualifyingTableContainer,
+  DriverDetailContainer,
 } from '../../components';
 
 class Layout extends Component {
@@ -41,6 +42,7 @@ class Layout extends Component {
                 <Route path='/races' component={RaceTableContainer} />
                 <Route path='/quals/:year' component={QualifyingTableContainer} />
                 <Route path='/quals' component={QualifyingTableContainer} />
+                <Route path="/drivers/alonso" component={DriverDetailContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
                 <Redirect from="/" to="/overview" />
