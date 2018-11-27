@@ -22,6 +22,7 @@ import {
   faFlagCheckered,
   faTachometerAlt,
   faTrophy,
+  faBirthdayCake,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -34,7 +35,9 @@ library.add(
   faFlag,
   faFlagCheckered,
   faTachometerAlt,
-  faTrophy,)
+  faTrophy,
+  faBirthdayCake,
+)
 
 // TODO: Refactor along with Layout Component
 // Components

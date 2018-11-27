@@ -6,7 +6,7 @@ import {
 } from 'reactstrap';
 import { FlagByDemonym } from '../../utils/countries';
 
-//import moment from 'moment';
+import moment from 'moment';
 
 const requestData = (driverId) => {
   let url = 'https://ergast.com/api/f1/drivers/' + driverId + '/results.json?limit=500';
@@ -67,6 +67,8 @@ const requestData = (driverId) => {
       res.driver.dateOfBirth        = rows[0].dateOfBirth;
       res.driver.driverNationality  = rows[0].driverNationality;
       res.driver.flag               = FlagByDemonym(rows[0].driverNationality).iso2;
+
+      res.driver.age = moment().diff(moment(res.driver.dateOfBirth), 'years');
 
       res.driver.races    = 0;
       res.driver.dns      = 0;
@@ -170,6 +172,11 @@ class DriverDetailContainer extends Component {
           nationality={this.state.driver.driverNationality}
         />
         <Row>
+          <DriverStatCard
+            value={this.state.driver.age}
+            name="Years Old"
+            icon="birthday-cake"
+          />
           <DriverStatCard
             value={this.state.driver.races}
             name="Races"
