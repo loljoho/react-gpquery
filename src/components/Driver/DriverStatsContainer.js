@@ -11,21 +11,6 @@ import DriverStats from './DriverStats';
 
 import { FlagByDemonym } from '../../utils/countries';
 
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
-
 const options = {
   responsive: true,
 };
@@ -82,7 +67,21 @@ const requestData = (driverId) => {
       res.rows = rows;
       res.driver = {};
 
-      res.data = {};
+      res.data = {
+        labels: [],
+        datasets: [{
+          type: 'line',
+          label: 'Points',
+          fill: false,
+          borderColor: '#EC932F',
+          backgroundColor: '#EC932F',
+          pointBorderColor: '#EC932F',
+          pointBackgroundColor: '#EC932F',
+          pointHoverBackgroundColor: '#EC932F',
+          pointHoverBorderColor: '#EC932F',
+          data: []
+        }]
+      };
 
       res.driver.driverId           = rows[0].driverId;
       res.driver.driverCode         = rows[0].driverCode;
@@ -111,6 +110,10 @@ const requestData = (driverId) => {
       res.driver.avgRacePoints  = 0;
 
       rows.forEach((row) => {
+
+        // chart labels
+        res.data.labels.push(`${row.season} ${row.race}`);
+        res.data.datasets[0].data.push(parseInt(row.points, 10));
 
         // seasons
         res.driver.seasonMin = parseInt(row.season, 10) < res.driver.seasonMin ? parseInt(row.season, 10) : res.driver.seasonMin;
@@ -201,7 +204,7 @@ class DriverStatsContainer extends Component {
       this.setState({
         rows: res.rows,
         chart: {
-          data: data,
+          data: res.data,
           options: options
         },
         driver: res.driver,
