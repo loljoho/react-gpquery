@@ -32,7 +32,7 @@ class Layout extends Component {
         <Header />
         <div className="app-body">
           <main role="main">
-            <Container>
+            <Container style={{background: '#f0f0ff'}}>
               <Switch>
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
@@ -43,6 +43,7 @@ class Layout extends Component {
                 <Route path='/quals/:year' component={QualifyingTableContainer} />
                 <Route path='/quals' component={QualifyingTableContainer} />
                 <Route path="/drivers/alonso" component={DriverStatsContainer} />
+                <Route path="/drivers/:driverId" component={DriverStatsContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
                 <Redirect from="/" to="/overview" />
