@@ -69,6 +69,8 @@ const requestData = (driverId) => {
       res.driver.flag               = FlagByDemonym(rows[0].driverNationality).iso2;
 
       res.driver.age = moment().diff(moment(res.driver.dateOfBirth), 'years');
+      res.driver.seasonMin = moment().year();
+      res.driver.seasonMax = 0;
 
       res.driver.races    = 0;
       res.driver.dns      = 0;
@@ -85,6 +87,10 @@ const requestData = (driverId) => {
       res.driver.avgRacePoints  = 0;
 
       rows.forEach((row) => {
+
+        // seasons
+        res.driver.seasonMin = parseInt(row.season, 10) < res.driver.seasonMin ? parseInt(row.season, 10) : res.driver.seasonMin;
+        res.driver.seasonMax = parseInt(row.season, 10) > res.driver.seasonMax ? parseInt(row.season, 10) : res.driver.seasonMax;
 
         // races
         res.driver.races++;
@@ -121,6 +127,9 @@ const requestData = (driverId) => {
 
       });
 
+      // seasons
+      res.driver.seasons = res.driver.seasonMax - res.driver.seasonMin + 1;
+
       // starts
       res.driver.starts = res.driver.races - res.driver.dns;
 
@@ -132,6 +141,12 @@ const requestData = (driverId) => {
 
       // avg points
       res.driver.avgRacePoints = (res.driver.points / res.driver.starts).toFixed(2);
+
+      // avg wins
+      res.driver.avgRaceWins = (res.driver.wins / res.driver.starts).toFixed(4);
+
+      // avg poles
+      res.driver.avgRacePoles = (res.driver.poles / res.driver.starts).toFixed(4);
 
       return res;
     }); // end then
@@ -176,6 +191,11 @@ class DriverDetailContainer extends Component {
             value={this.state.driver.age}
             name="Years Old"
             icon="birthday-cake"
+          />
+          <DriverStatCard
+            value={this.state.driver.seasons}
+            name="Seasons"
+            icon="calendar"
           />
           <DriverStatCard
             value={this.state.driver.races}
@@ -236,6 +256,26 @@ class DriverDetailContainer extends Component {
             value={this.state.driver.avgRacePoints}
             name="Avg Points/Race"
             icon="road"
+          />
+          <DriverStatCard
+            value={this.state.driver.avgRaceWins}
+            name="Avg Wins/Race"
+            icon="flag"
+          />
+          <DriverStatCard
+            value={this.state.driver.avgRacePoles}
+            name="Avg Poles/Race"
+            icon="trophy"
+          />
+          <DriverStatCard
+            value={this.state.driver.seasonMin}
+            name="First Season"
+            icon="calendar-minus"
+          />
+          <DriverStatCard
+            value={this.state.driver.seasonMax}
+            name="Last Season"
+            icon="calendar-plus"
           />
         </Row>
       </div>
