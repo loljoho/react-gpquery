@@ -1,9 +1,34 @@
 import React, { Component } from 'react';
+import {
+  Row,
+  Col,
+} from 'reactstrap';
+import {Bar} from 'react-chartjs-2';
+import moment from 'moment';
+
 import DriverStatsHeader from './DriverStatsHeader';
 import DriverStats from './DriverStats';
+
 import { FlagByDemonym } from '../../utils/countries';
 
-import moment from 'moment';
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: 'rgba(255,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80, 81, 56, 55, 40]
+    }
+  ]
+};
+
+const options = {
+  responsive: true,
+};
 
 const requestData = (driverId) => {
   let url = 'https://ergast.com/api/f1/drivers/' + driverId + '/results.json?limit=500';
@@ -203,103 +228,17 @@ class DriverStatsContainer extends Component {
           seasonMin={this.state.driver.seasonMin}
           seasonMax={this.state.driver.seasonMax}
         />
+        <Row>
+          <Col>
+            <Bar
+              data={data}
+              options={options}
+            />
+          </Col>
+        </Row>
       </div>
     );
   }
 }
-/*
-        <Row>
-          <DriverStatCard
-            value={this.state.driver.age}
-            name="Years Old"
-            icon="birthday-cake"
-          />
-          <DriverStatCard
-            value={this.state.driver.seasons}
-            name="Seasons"
-            icon="calendar"
-          />
-          <DriverStatCard
-            value={this.state.driver.races}
-            name="Races"
-            icon="tachometer-alt"
-          />
-          <DriverStatCard
-            value={this.state.driver.poles}
-            name="Pole Positions"
-            icon="flag"
-          />
-          <DriverStatCard
-            value={this.state.driver.wins}
-            name="Wins"
-            icon="trophy"
-          />
-          <DriverStatCard
-            value={this.state.driver.dnf}
-            name="DNFs"
-            icon="car-crash"
-          />
-          <DriverStatCard
-            value={this.state.driver.dns}
-            name="DNSs"
-            icon="traffic-light"
-          />
-          <DriverStatCard
-            value={this.state.driver.points}
-            name="Points"
-            icon="road"
-          />
-          <DriverStatCard
-            value={this.state.driver.podiums}
-            name="Podiums"
-            icon="flag-checkered"
-          />
-          <DriverStatCard
-            value={this.state.driver.laps}
-            name="Total Laps"
-            icon="stopwatch"
-          />
-          <DriverStatCard
-            value={this.state.driver.starts}
-            name="Total Starts"
-            icon="car"
-          />
-          <DriverStatCard
-            value={this.state.driver.avgRacePos}
-            name="Avg Pos/Race"
-            icon="flag-checkered"
-          />
-          <DriverStatCard
-            value={this.state.driver.avgRaceGrid}
-            name="Avg Grid/Race"
-            icon="flag"
-          />
-          <DriverStatCard
-            value={this.state.driver.avgRacePoints}
-            name="Avg Points/Race"
-            icon="road"
-          />
-          <DriverStatCard
-            value={this.state.driver.avgRaceWins}
-            name="Avg Wins/Race"
-            icon="flag"
-          />
-          <DriverStatCard
-            value={this.state.driver.avgRacePoles}
-            name="Avg Poles/Race"
-            icon="trophy"
-          />
-          <DriverStatCard
-            value={this.state.driver.seasonMin}
-            name="First Season"
-            icon="calendar-minus"
-          />
-          <DriverStatCard
-            value={this.state.driver.seasonMax}
-            name="Last Season"
-            icon="calendar-plus"
-          />
-        </Row>
-        */
 
 export default DriverStatsContainer;
