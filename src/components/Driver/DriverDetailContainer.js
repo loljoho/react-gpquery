@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DriverStatCard from './DriverStatCard';
 import DriverDetailHeader from './DriverDetailHeader';
+import DriverDetail from './DriverDetail';
 import {
   Row,
 } from 'reactstrap';
@@ -186,6 +187,31 @@ class DriverDetailContainer extends Component {
           flag={this.state.driver.flag}
           nationality={this.state.driver.driverNationality}
         />
+        <DriverDetail
+          age={this.state.driver.age}
+          seasons={this.state.driver.seasons}
+          races={this.state.driver.races}
+          poles={this.state.driver.poles}
+          wins={this.state.driver.wins}
+          dnf={this.state.driver.dnf}
+          dns={this.state.driver.dns}
+          points={this.state.driver.points}
+          podiums={this.state.driver.podiums}
+          laps={this.state.driver.laps}
+          starts={this.state.driver.starts}
+          avgRacePos={this.state.driver.avgRacePos}
+          avgRaceGrid={this.state.driver.avgRaceGrid}
+          avgRacePoints={this.state.driver.avgRacePoints}
+          avgRaceWins={this.state.driver.avgRaceWins}
+          avgRacePoles={this.state.driver.avgRacePoles}
+          seasonMin={this.state.driver.seasonMin}
+          seasonMax={this.state.driver.seasonMax}
+        />
+      </div>
+    );
+  }
+}
+/*
         <Row>
           <DriverStatCard
             value={this.state.driver.age}
@@ -278,9 +304,6 @@ class DriverDetailContainer extends Component {
             icon="calendar-plus"
           />
         </Row>
-      </div>
-    );
-  }
-}
+        */
 
 export default DriverDetailContainer;
