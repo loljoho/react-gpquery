@@ -82,6 +82,8 @@ const requestData = (driverId) => {
       res.rows = rows;
       res.driver = {};
 
+      res.data = {};
+
       res.driver.driverId           = rows[0].driverId;
       res.driver.driverCode         = rows[0].driverCode;
       res.driver.givenName          = rows[0].givenName;
@@ -179,6 +181,12 @@ class DriverStatsContainer extends Component {
     super()
     this.state = {
       rows: [],
+      chart: {
+        data: {
+          labels: [],
+          datasets: []
+        }
+      },
       driver: {},
       pages: null,
       loading: true
@@ -192,6 +200,10 @@ class DriverStatsContainer extends Component {
     requestData(driverId).then(res => {
       this.setState({
         rows: res.rows,
+        chart: {
+          data: data,
+          options: options
+        },
         driver: res.driver,
         loading: false
       });
@@ -231,8 +243,8 @@ class DriverStatsContainer extends Component {
         <Row>
           <Col>
             <Bar
-              data={data}
-              options={options}
+              data={this.state.chart.data}
+              options={this.state.chart.options}
             />
           </Col>
         </Row>
