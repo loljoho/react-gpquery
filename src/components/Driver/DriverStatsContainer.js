@@ -13,6 +13,40 @@ import { FlagByDemonym } from '../../utils/countries';
 
 const options = {
   responsive: true,
+  tooltips: {
+    mode: 'label'
+  },
+  elements: {
+    line: {
+      fill: false
+    }
+  },
+  scales: {
+    yAxes: [
+      {
+        type: 'category',
+        display: true,
+        position: 'right',
+        id: 'y-axis-position',
+        gridLines: {
+          display: true
+        },
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+      },
+      {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        id: 'y-axis-points',
+        gridLines: {
+          display: false
+        },
+        labels: {
+          show: true
+        }
+      }
+    ]
+  }
 };
 
 const requestData = (driverId) => {
@@ -71,6 +105,16 @@ const requestData = (driverId) => {
         labels: [],
         datasets: [{
           type: 'line',
+          label: 'Position',
+          fill: false,
+          backgroundColor: '#71B37C',
+          borderColor: '#71B37C',
+          hoverBackgroundColor: '#71B37C',
+          hoverBorderColor: '#71B37C',
+          yAxisID: 'y-axis-position',
+          data: []
+        }, {
+          type: 'bar',
           label: 'Points',
           fill: false,
           borderColor: '#EC932F',
@@ -79,6 +123,7 @@ const requestData = (driverId) => {
           pointBackgroundColor: '#EC932F',
           pointHoverBackgroundColor: '#EC932F',
           pointHoverBorderColor: '#EC932F',
+          yAxisID: 'y-axis-points',
           data: []
         }]
       };
@@ -113,7 +158,10 @@ const requestData = (driverId) => {
 
         // chart labels
         res.data.labels.push(`${row.season} ${row.race}`);
-        res.data.datasets[0].data.push(parseInt(row.points, 10));
+
+        // chart points
+        res.data.datasets[0].data.push(parseInt(row.position, 10));
+        res.data.datasets[1].data.push(parseInt(row.points, 10));
 
         // seasons
         res.driver.seasonMin = parseInt(row.season, 10) < res.driver.seasonMin ? parseInt(row.season, 10) : res.driver.seasonMin;
