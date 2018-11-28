@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import DriverStatCard from './DriverStatCard';
-import DriverDetailHeader from './DriverDetailHeader';
-import DriverDetail from './DriverDetail';
-import {
-  Row,
-} from 'reactstrap';
+import DriverStatsHeader from './DriverStatsHeader';
+import DriverStats from './DriverStats';
 import { FlagByDemonym } from '../../utils/countries';
 
 import moment from 'moment';
@@ -153,7 +149,7 @@ const requestData = (driverId) => {
     }); // end then
 }
 
-class DriverDetailContainer extends Component {
+class DriverStatsContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -179,7 +175,7 @@ class DriverDetailContainer extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <DriverDetailHeader
+        <DriverStatsHeader
           driverId={this.state.driver.driverId}
           givenName={this.state.driver.givenName}
           familyName={this.state.driver.familyName}
@@ -187,7 +183,7 @@ class DriverDetailContainer extends Component {
           flag={this.state.driver.flag}
           nationality={this.state.driver.driverNationality}
         />
-        <DriverDetail
+        <DriverStats
           age={this.state.driver.age}
           seasons={this.state.driver.seasons}
           races={this.state.driver.races}
@@ -306,4 +302,4 @@ class DriverDetailContainer extends Component {
         </Row>
         */
 
-export default DriverDetailContainer;
+export default DriverStatsContainer;

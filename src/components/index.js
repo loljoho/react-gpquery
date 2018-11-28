@@ -4,7 +4,7 @@ import RaceTableContainer from './Race/RaceTableContainer';
 import QualifyingTableContainer from './Qualifying/QualifyingTableContainer';
 import ResultTableContainer from './Result/ResultTableContainer';
 
-import DriverDetailContainer from './Driver/DriverDetailContainer';
+import DriverStatsContainer from './Driver/DriverStatsContainer';
 
 export {
   ConstructorTableContainer,
@@ -13,5 +13,5 @@ export {
   QualifyingTableContainer,
   ResultTableContainer,
 
-  DriverDetailContainer,
+  DriverStatsContainer,
 };

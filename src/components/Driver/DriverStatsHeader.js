@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DriverDetailHeader extends Component {
+class DriverStatsHeader extends Component {
   render() {
     return (
       <div className="mb-4">
@@ -15,4 +15,4 @@ class DriverDetailHeader extends Component {
   }
 }
 
-export default DriverDetailHeader;
+export default DriverStatsHeader;

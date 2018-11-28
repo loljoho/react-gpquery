@@ -3,9 +3,8 @@ import DriverStatCard from './DriverStatCard';
 import {
   Row,
 } from 'reactstrap';
-import { FlagByDemonym } from '../../utils/countries';
 
-class DriverDetail extends Component {
+class DriverStats extends Component {
   render() {
     return (
       <Row>
@@ -104,4 +103,4 @@ class DriverDetail extends Component {
   }
 }
 
-export default DriverDetail;
+export default DriverStats;
