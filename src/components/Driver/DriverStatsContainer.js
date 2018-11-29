@@ -66,7 +66,7 @@ const requestData = (driverId) => {
 
         row.season  = race.season;
         row.round   = race.round;
-        row.race    = race.raceName;
+        row.race    = race.raceName.slice(0, -11);
         row.date    = race.date;
         row.circuit = race.Circuit.circuitName;
         row.city    = race.Circuit.Location.locality;
@@ -157,7 +157,7 @@ const requestData = (driverId) => {
       rows.forEach((row) => {
 
         // chart labels
-        res.data.labels.push(`${row.season} ${row.race}`);
+        res.data.labels.push(`${row.race} ${row.season}`);
 
         // chart points
         res.data.datasets[0].data.push(parseInt(row.position, 10));
