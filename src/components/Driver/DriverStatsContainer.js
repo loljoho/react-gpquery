@@ -218,10 +218,10 @@ const requestData = (driverId) => {
       res.driver.avgRacePoints = (res.driver.points / res.driver.starts).toFixed(2);
 
       // avg wins
-      res.driver.avgRaceWins = (res.driver.wins / res.driver.starts).toFixed(4);
+      res.driver.avgRaceWins = (res.driver.wins / res.driver.starts).toFixed(2);
 
       // avg poles
-      res.driver.avgRacePoles = (res.driver.poles / res.driver.starts).toFixed(4);
+      res.driver.avgRacePoles = (res.driver.poles / res.driver.starts).toFixed(2);
 
       return res;
     }); // end then
