@@ -101,7 +101,14 @@ class ResultTableContainer extends Component {
             {
               Header    : 'Name',
               id        : 'driverId',
-              accessor  : d => `${d.givenName} ${d.familyName}`
+              accessor  : d => {
+                return {
+                  name: `${d.givenName} ${d.familyName}`,
+                  id: `${d.driverId}`
+                }
+              },
+              Cell: row =>
+                <a href={`drivers/${row.value.id}`}>{row.value.name}</a>
             },
             {
               Header    : 'Num',

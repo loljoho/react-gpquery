@@ -77,7 +77,14 @@ class DriverTableContainer extends Component {
         {
           Header    : 'Driver',
           id        : 'driverId',
-          accessor  : d => `${d.givenName} ${d.familyName}`
+          accessor  : d => {
+            return {
+              name: `${d.givenName} ${d.familyName}`,
+              id: `${d.driverId}`
+            }
+          },
+          Cell: row =>
+            <a href={`drivers/${row.value.id}`}>{row.value.name}</a>
         },
         {
           Header    : '',
