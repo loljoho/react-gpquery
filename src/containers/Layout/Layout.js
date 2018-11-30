@@ -16,6 +16,8 @@ import {
 
 // TODO: Refactor these Component imports
 import {
+  AreaChart,
+
   ConstructorTableContainer,
   DriverTableContainer,
   RaceTableContainer,
@@ -34,6 +36,7 @@ class Layout extends Component {
           <main role="main">
             <Container style={{background: '#f0f0ff'}}>
               <Switch>
+                <Route path='/areachart' component={AreaChart} />
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
                 <Route path='/results/:year/:round' component={ResultTableContainer} />
@@ -46,7 +49,7 @@ class Layout extends Component {
                 <Route path="/drivers/:driverId" component={DriverStatsContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/overview" />
+                <Redirect from="/" to="/areachart" />
               </Switch>
             </Container>
           </main>
