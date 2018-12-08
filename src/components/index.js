@@ -6,6 +6,8 @@ import ResultTableContainer from './Result/ResultTableContainer';
 
 import DriverStatsContainer from './Driver/DriverStatsContainer';
 
+import DriverChartContainer from './Driver/DriverChartContainer';
+
 export {
   ConstructorTableContainer,
   DriverTableContainer,
@@ -14,4 +16,5 @@ export {
   ResultTableContainer,
 
   DriverStatsContainer,
+  DriverChartContainer,
 };

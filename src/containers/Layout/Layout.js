@@ -22,6 +22,7 @@ import {
   ResultTableContainer,
   QualifyingTableContainer,
   DriverStatsContainer,
+  DriverChartContainer,
 } from '../../components';
 
 class Layout extends Component {
@@ -46,7 +47,8 @@ class Layout extends Component {
                 <Route path="/drivers/:driverId" component={DriverStatsContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/overview" />
+                <Route path="/driverchart/alonso" component={DriverChartContainer} />
+                <Redirect from="/" to="/driverchart/alonso" />
               </Switch>
             </Container>
           </main>
