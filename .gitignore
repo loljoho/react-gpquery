@@ -6,6 +6,7 @@
 
 # css
 src/**/*.css
+!src/styles/flag-icon-css/css/*.css
 
 # dependencies
 /node_modules
