@@ -88,6 +88,7 @@ class ConstructorTableContainer extends Component {
         },
       ]}
       loading={loading}
+      minRows={0}
       showPagination={false}
       onFetchData={this.fetchData}
       className="-highlight"
