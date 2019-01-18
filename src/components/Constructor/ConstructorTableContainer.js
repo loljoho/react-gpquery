@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
@@ -14,7 +15,7 @@ const requestData = () => {
       return res.json();
     })
     .then(data => {
-      const rows = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings.map(team => {
+      const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].ConstructorStandings', []).map(team => {
         let row = {};
 
         row.position        = team.position;
