@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getRaces } from '../../utils/ergast';
 import { FlagByCountry, FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
@@ -6,84 +7,22 @@ import 'react-table/react-table.css';
 
 import moment from 'moment';
 
-const requestData = (year) => {
-  let url = 'https://ergast.com/api/f1/' + year + '/results.json?limit=500';
-  return fetch(url)
-    .then(res => {
-      if (res.status !== 200) {
-        console.log('Error status code: ' + res.status);
-        return;
-      }
-      return res.json();
-    })
-    .then(data => {
-      const rows = data.MRData.RaceTable.Races.map(race => {
-        let row = {};
-
-        race.Results.forEach(result => {
-          if (result.grid === '1') {
-            row.pole = result.Driver.givenName + ' ' + result.Driver.familyName;
-          }
-          if (result.position === '1') {
-            row.winner = result.Driver.givenName + ' ' + result.Driver.familyName;
-          }
-          if (result.position === '2') {
-            row.second = result.Driver.givenName + ' ' + result.Driver.familyName;
-          }
-          if (result.position === '3') {
-            row.third  = result.Driver.givenName + ' ' + result.Driver.familyName;
-          }
-          if (typeof result.FastestLap !== 'undefined') {
-            if (result.FastestLap.rank === '1') {
-              row.fastest = result.Driver.givenName + ' ' + result.Driver.familyName;
-            }
-          }
-        })
-
-        row.season  = race.season;
-        row.round   = race.round;
-        row.race    = race.raceName;
-
-        row.date    = race.date;
-        row.time    = race.time;
-
-        row.circuit = race.Circuit.circuitName;
-        row.city    = race.Circuit.Location.locality;
-        row.country = race.Circuit.Location.country;
-        row.lat     = race.Circuit.Location.lat;
-        row.long    = race.Circuit.Location.long;
-
-        row.children = race.Results;
-
-        return row;
-      }); // end map
-      const res = {};
-      res.rows = rows;
-      return res;
-    }); // end then
-}
-
 class RaceTableContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: [],
       pages: null,
       loading: true
     }
-    this.fetchData = this.fetchData.bind(this);
   }
-  fetchData(state, instance) {
-    this.setState({ loading: true });
+  componentDidMount() {
     let year = 'current';
     if (this.props.match) {
       year = this.props.match.params.year || 'current';
     }
-    requestData(year).then(res => {
-      this.setState({
-        data: res.rows,
-        loading: false
-      });
+    this.setState({ loading: true }, () => {
+      getRaces(year).then(res => this.setState({data: res.rows, loading: false}));
     });
   }
   render() {
@@ -159,7 +98,6 @@ class RaceTableContainer extends Component {
       ]}
       loading={loading}
       showPagination={false}
-      onFetchData={this.fetchData}
       className="-highlight"
       SubComponent={row => {
         console.log(row);
