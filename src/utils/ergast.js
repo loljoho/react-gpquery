@@ -12,7 +12,7 @@ const getConstructors = (year = 'current') => {
     })
     .then(data => {
       const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].ConstructorStandings', [])
-        .map(({ Constructor: { constructorId: teamId, name: teamName, nationality: teamNationality }, position, positionText, points, wins }) => ({
+        .map(({ Constructor: { constructorId: teamId, name: teamName, nationality: teamNationality }, position, positionText, points, wins, ...rest }) => ({
           teamId,
           teamName,
           teamNationality,
@@ -22,6 +22,8 @@ const getConstructors = (year = 'current') => {
           wins
         })); // end map
       const res = {};
+      res.season = _.get(data, 'MRData.StandingsTable.StandingsLists[0].season', '');
+      res.round = _.get(data, 'MRData.StandingsTable.StandingsLists[0].round', '');
       res.rows = rows;
       return res;
     }); // end then

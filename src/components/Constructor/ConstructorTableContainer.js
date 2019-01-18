@@ -10,55 +10,64 @@ class ConstructorTableContainer extends Component {
     super(props);
     this.state = {
       data: [],
+      season: '',
+      round: '',
       pages: null,
       loading: true
     }
   }
   componentDidMount() {
     this.setState({ loading: true }, () => {
-      getConstructors().then(res => this.setState({data: res.rows, loading: false}));
+      getConstructors().then(res => this.setState({data: res.rows, season: res.season, round: res.round, loading: false}));
     });
   }
   render() {
-    const { data, loading } = this.state;
-    return <ReactTable
-      data={data}
-      columns={[
-        {
-          Header    : 'Pos',
-          id        : 'position',
-          accessor  : 'positionText',
-          maxWidth  : 50,
-        },
-        {
-          Header    : 'Constructor',
-          id        : 'teamId',
-          accessor  : 'teamName'
-        },
-        {
-          Header    : '',
-          accessor  : 'teamNationality',
-          maxWidth  : 50,
-          Cell: row =>
-            <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
-        },
-        {
-          Header    : 'Wins',
-          accessor  : 'wins',
-          maxWidth  : 50,
-        },
-        {
-          Header    : 'Pts',
-          accessor  : 'points',
-          maxWidth  : 50,
-        },
-      ]}
-      loading={loading}
-      minRows={0}
-      showPagination={false}
-      onFetchData={this.fetchData}
-      className="-highlight"
-    />
+    const { data, season, round, loading } = this.state;
+    return (
+      <React.Fragment>
+        <div className="mb-4">
+          <h1>{season} Constructor Standings</h1>
+          <h2 className="text-muted">Round {round} </h2>
+        </div>
+        <ReactTable
+          data={data}
+          columns={[
+            {
+              Header    : 'Pos',
+              id        : 'position',
+              accessor  : 'positionText',
+              maxWidth  : 50,
+            },
+            {
+              Header    : 'Constructor',
+              id        : 'teamId',
+              accessor  : 'teamName'
+            },
+            {
+              Header    : '',
+              accessor  : 'teamNationality',
+              maxWidth  : 50,
+              Cell: row =>
+                <span className={`flag-icon flag-icon-${FlagByDemonym(row.value).iso2}`}></span>
+            },
+            {
+              Header    : 'Wins',
+              accessor  : 'wins',
+              maxWidth  : 50,
+            },
+            {
+              Header    : 'Pts',
+              accessor  : 'points',
+              maxWidth  : 50,
+            },
+          ]}
+          loading={loading}
+          minRows={0}
+          showPagination={false}
+          className="-highlight"
+        />
+      </React.Fragment>
+    );
   }
 }
 
