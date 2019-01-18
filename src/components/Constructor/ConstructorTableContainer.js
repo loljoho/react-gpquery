@@ -15,20 +15,16 @@ const requestData = () => {
       return res.json();
     })
     .then(data => {
-      const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].ConstructorStandings', []).map(team => {
-        let row = {};
-
-        row.position        = team.position;
-        row.positionText    = team.positionText;
-        row.points          = team.points;
-        row.wins            = team.wins;
-
-        row.teamId          = team.Constructor.constructorId;
-        row.teamName        = team.Constructor.name;
-        row.teamNationality = team.Constructor.nationality;
-
-        return row;
-      }); // end map
+      const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].ConstructorStandings', [])
+        .map(({ Constructor: { constructorId: teamId, name: teamName, nationality: teamNationality }, position, positionText, points, wins }) => ({
+          teamId,
+          teamName,
+          teamNationality,
+          position,
+          positionText,
+          points,
+          wins
+        })); // end map
       const res = {};
       res.rows = rows;
       return res;
