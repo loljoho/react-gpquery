@@ -1,35 +1,9 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+import { getConstructors } from '../../utils/ergast';
 import { FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-
-const requestData = () => {
-  return fetch('https://ergast.com/api/f1/current/constructorStandings.json')
-    .then(res => {
-      if (res.status !== 200) {
-        console.log('Error status code: ' + res.status);
-        return;
-      }
-      return res.json();
-    })
-    .then(data => {
-      const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].ConstructorStandings', [])
-        .map(({ Constructor: { constructorId: teamId, name: teamName, nationality: teamNationality }, position, positionText, points, wins }) => ({
-          teamId,
-          teamName,
-          teamNationality,
-          position,
-          positionText,
-          points,
-          wins
-        })); // end map
-      const res = {};
-      res.rows = rows;
-      return res;
-    }); // end then
-}
 
 class ConstructorTableContainer extends Component {
   constructor(props) {
@@ -39,11 +13,10 @@ class ConstructorTableContainer extends Component {
       pages: null,
       loading: true
     }
-    this.fetchData = this.fetchData.bind(this);
   }
-  fetchData(state, instance) {
+  componentDidMount() {
     this.setState({ loading: true }, () => {
-      requestData().then(res => this.setState({data: res.rows, loading: false}));
+      getConstructors().then(res => this.setState({data: res.rows, loading: false}));
     });
   }
   render() {
