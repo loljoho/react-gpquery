@@ -32,7 +32,7 @@ class Layout extends Component {
         <Header />
         <div className="app-body">
           <main role="main">
-            <Container style={{background: '#f0f0ff'}}>
+            <Container>
               <Switch>
                 <Route path="/overview" component={OverviewPage} />
                 <Route path="/table" component={TablePage} />
