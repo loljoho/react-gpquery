@@ -19,13 +19,14 @@ const getConstructors = (year = 'current') => {
           position,
           positionText,
           points,
-          wins
+          wins,
+          ...rest
         })); // end map
-      const res = {};
-      res.season = _.get(data, 'MRData.StandingsTable.StandingsLists[0].season', '');
-      res.round = _.get(data, 'MRData.StandingsTable.StandingsLists[0].round', '');
-      res.rows = rows;
-      return res;
+      return {
+        season: _.get(data, 'MRData.StandingsTable.StandingsLists[0].season', ''),
+        round: _.get(data, 'MRData.StandingsTable.StandingsLists[0].round', ''),
+        rows: rows
+      };
     }); // end then
 }
 
