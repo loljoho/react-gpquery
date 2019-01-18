@@ -42,12 +42,8 @@ class ConstructorTableContainer extends Component {
     this.fetchData = this.fetchData.bind(this);
   }
   fetchData(state, instance) {
-    this.setState({ loading: true });
-    requestData().then(res => {
-      this.setState({
-        data: res.rows,
-        loading: false
-      });
+    this.setState({ loading: true }, () => {
+      requestData().then(res => this.setState({data: res.rows, loading: false}));
     });
   }
   render() {
