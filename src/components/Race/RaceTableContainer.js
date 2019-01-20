@@ -5,6 +5,8 @@ import { FlagByCountry, FlagByDemonym } from '../../utils/countries';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
+import { withRouter } from 'react-router';
+
 import moment from 'moment';
 
 class RaceTableContainer extends Component {
@@ -214,4 +216,4 @@ class RaceTableContainer extends Component {
   }
 }
 
-export default RaceTableContainer;
+export default withRouter(RaceTableContainer);
