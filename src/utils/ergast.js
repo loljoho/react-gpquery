@@ -100,8 +100,7 @@ const getDriverStats = (driverId) => {
       return res.json();
     })
     .then(data => {
-
-      const rows = data.MRData.RaceTable.Races.map(race => {
+      const rows = _.get(data, 'MRData.RaceTable.Races', []).map(race => {
         let row = {};
 
         row.season  = race.season;
