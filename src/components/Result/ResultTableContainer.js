@@ -4,8 +4,6 @@ import { FlagByDemonym } from '../../utils/countries';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
-import moment from 'moment';
-
 const requestData = (year, round) => {
   return fetch('https://ergast.com/api/f1/' + year + '/' + round + '/results.json')
     .then(res => {
