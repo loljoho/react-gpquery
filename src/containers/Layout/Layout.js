@@ -46,7 +46,7 @@ class Layout extends Component {
                 <Route path="/drivers/:driverId" component={DriverStatsContainer} />
                 <Route path="/drivers" component={DriverTableContainer} />
                 <Route path="/constructors" component={ConstructorTableContainer} />
-                <Redirect from="/" to="/overview" />
+                <Redirect from="/" to="/drivers" />
               </Switch>
             </Container>
           </main>
