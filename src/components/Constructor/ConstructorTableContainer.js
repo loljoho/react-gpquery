@@ -24,11 +24,11 @@ class ConstructorTableContainer extends Component {
   render() {
     const { data, season, round, loading } = this.state;
     return (
+        //<div className="mb-4">
+          //<h1>{season} Constructor Standings</h1>
+          //<h2 className="text-muted">Round {round} </h2>
+        //</div>
       <React.Fragment>
-        <div className="mb-4">
-          <h1>{season} Constructor Standings</h1>
-          <h2 className="text-muted">Round {round} </h2>
-        </div>
         <ReactTable
           data={data}
           columns={[
