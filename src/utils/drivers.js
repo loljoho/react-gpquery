@@ -180,6 +180,45 @@ const getDriverStats = (driverId) => {
     }); // end then
 }
 
+const getDriverTable = () => {
+  return fetch('http://ergast.com/api/f1/current/driverStandings.json')
+    .then(res => {
+      if (res.status !== 200) {
+        console.log('Error status code: ' + res.status);
+        return;
+      }
+      return res.json();
+    })
+    .then(data => {
+      const rows = data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(driver => {
+        let row = {};
+
+        row.position        = driver.position;
+        row.positionText    = driver.positionText;
+        row.points          = driver.points;
+        row.wins            = driver.wins;
+
+        row.driverId          = driver.Driver.driverId;
+        row.driverNumber      = driver.Driver.permanentNumber;
+        row.givenName         = driver.Driver.givenName;
+        row.familyName        = driver.Driver.familyName;
+        row.code              = driver.Driver.code;
+        row.dob               = driver.Driver.dateOfBirth;
+        row.driverNationality = driver.Driver.nationality;
+
+        row.teamId          = driver.Constructors[0].constructorId;
+        row.teamName        = driver.Constructors[0].name;
+        row.teamNationality = driver.Constructors[0].nationality;
+
+        return row;
+      }); // end map
+      return {
+        rows: rows
+      };
+    }); // end then
+}
+
 export {
-  getDriverStats
+  getDriverStats,
+  getDriverTable
 }
