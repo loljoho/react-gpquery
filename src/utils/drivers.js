@@ -190,28 +190,29 @@ const getDriverTable = () => {
       return res.json();
     })
     .then(data => {
-      const rows = data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(driver => {
-        let row = {};
+      const rows = _.get(data, 'MRData.StandingsTable.StandingsLists[0].DriverStandings', [])
+        .map(driver => {
+          let row = {};
 
-        row.position        = driver.position;
-        row.positionText    = driver.positionText;
-        row.points          = driver.points;
-        row.wins            = driver.wins;
+          row.position        = driver.position;
+          row.positionText    = driver.positionText;
+          row.points          = driver.points;
+          row.wins            = driver.wins;
 
-        row.driverId          = driver.Driver.driverId;
-        row.driverNumber      = driver.Driver.permanentNumber;
-        row.givenName         = driver.Driver.givenName;
-        row.familyName        = driver.Driver.familyName;
-        row.code              = driver.Driver.code;
-        row.dob               = driver.Driver.dateOfBirth;
-        row.driverNationality = driver.Driver.nationality;
+          row.driverId          = driver.Driver.driverId;
+          row.driverNumber      = driver.Driver.permanentNumber;
+          row.givenName         = driver.Driver.givenName;
+          row.familyName        = driver.Driver.familyName;
+          row.code              = driver.Driver.code;
+          row.dob               = driver.Driver.dateOfBirth;
+          row.driverNationality = driver.Driver.nationality;
 
-        row.teamId          = driver.Constructors[0].constructorId;
-        row.teamName        = driver.Constructors[0].name;
-        row.teamNationality = driver.Constructors[0].nationality;
+          row.teamId          = driver.Constructors[0].constructorId;
+          row.teamName        = driver.Constructors[0].name;
+          row.teamNationality = driver.Constructors[0].nationality;
 
-        return row;
-      }); // end map
+          return row;
+        }); // end map
       return {
         rows: rows
       };
