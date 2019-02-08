@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getConstructors } from '../../utils/ergast';
+import { getConstructors } from '../../utils/constructors';
 import { FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';

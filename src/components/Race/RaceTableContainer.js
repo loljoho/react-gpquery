@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getRaces } from '../../utils/ergast';
+import { getRaces } from '../../utils/races';
 import { FlagByCountry, FlagByDemonym } from '../../utils/countries';
 
 import ReactTable from 'react-table';

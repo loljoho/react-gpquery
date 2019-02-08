@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import {
   Row,
   Col,
@@ -8,7 +9,7 @@ import {Bar} from 'react-chartjs-2';
 import DriverStatsHeader from './DriverStatsHeader';
 import DriverStats from './DriverStats';
 
-import { getDriverStats } from '../../utils/ergast';
+import { getDriverStats } from '../../utils/drivers';
 
 const options = {
   responsive: true,
@@ -125,4 +126,4 @@ class DriverStatsContainer extends Component {
   }
 }
 
-export default DriverStatsContainer;
+export default withRouter(DriverStatsContainer);
