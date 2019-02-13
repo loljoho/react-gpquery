@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const getRaces = (year = 'current') => {
-  let url = 'http://ergast.com/api/f1/' + year + '/results.json?limit=500';
+  let url = 'https://ergast.com/api/f1/' + year + '/results.json?limit=500';
   return fetch(url)
     .then(res => {
       if (res.status !== 200) {

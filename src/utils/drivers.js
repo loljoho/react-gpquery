@@ -3,7 +3,7 @@ import moment from 'moment';
 import { FlagByDemonym } from './countries';
 
 const getDriverStats = (driverId) => {
-  let url = 'http://ergast.com/api/f1/drivers/' + driverId + '/results.json?limit=500';
+  let url = 'https://ergast.com/api/f1/drivers/' + driverId + '/results.json?limit=500';
   return fetch(url)
     .then(res => {
       if (res.status !== 200) {
@@ -181,7 +181,7 @@ const getDriverStats = (driverId) => {
 }
 
 const getDriverTable = () => {
-  return fetch('http://ergast.com/api/f1/current/driverStandings.json')
+  return fetch('https://ergast.com/api/f1/current/driverStandings.json')
     .then(res => {
       if (res.status !== 200) {
         console.log('Error status code: ' + res.status);
