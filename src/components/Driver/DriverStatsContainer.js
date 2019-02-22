@@ -80,6 +80,7 @@ class DriverStatsContainer extends Component {
         driver: res.driver,
         loading: false
       });
+      document.title = `${this.state.driver.givenName} ${this.state.driver.familyName} · Drivers - GPQuery `;
     });
   }
   render() {
