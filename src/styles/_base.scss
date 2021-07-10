@@ -1,0 +1,35 @@
+////
+/// Base Partial
+/// Contains styles for common HTML elements, as well as resets and typography
+/// @group Base
+/// @author Jonathan Ho
+////
+
+body {
+  margin: $body-margin;
+  padding: $body-padding;
+  font-family: $font-family-base;
+  background-color: $bg-color-base;
+  font-size: 0.875em;
+  overflow-y: auto;
+}
+
+.app {
+  margin-top: 100px;
+  height: 100vh;
+  .ReactTable {
+    font-size: 0.875em;
+  }
+  table.table {
+    font-size: 0.75em;
+    th {
+      &.round,
+      &.pos {
+        text-align: center;
+      }
+      &[colSpan] {
+        text-align: center;
+      }
+    }
+  }
+}
